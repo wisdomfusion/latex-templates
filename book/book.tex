@@ -1,22 +1,32 @@
 %!TEX program = xelatex
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% book template
+%% WisdomFusion@gmail.com
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \documentclass{ctexbook}
-\usepackage[utf8]{inputenc}
-%%\usepackage{ebgaramond}
 \usepackage{fontspec}
 \usepackage{xunicode}
 \usepackage{geometry}
 \usepackage{fancyhdr}
-\usepackage{tabularx}
 \usepackage{graphicx}
 \usepackage{enumerate}
-\usepackage{amsmath,mathrsfs,amsfonts}
+%% \usepackage{amsmath,mathrsfs,amsfonts}
 \usepackage[x11names]{xcolor}
+\usepackage{titletoc}
 \usepackage{titlesec}
+\usepackage{tabularx}
 \usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{multirow,makecell}
+\usepackage{ulem} % \uline
+\usepackage{multicol}
 \usepackage{lipsum}
-\usepackage{hyperref}
 
+\usepackage{hyperref}
 \hypersetup{
+  bookmarksnumbered,
   colorlinks,
   linkcolor={red!50!black},
   citecolor={blue!50!black},
@@ -35,6 +45,12 @@
   footskip=12mm
 }
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% fonts settings
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% \usepackage{ebgaramond}
+
 \setmainfont[Ligatures=TeX]{Minion Pro}
 \setsansfont{Myriad Pro}
 \setmonofont{Inconsolata}
@@ -46,14 +62,18 @@
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip = 0pt plus 1pt
 
-%%\newfontfamily\fzss{方正书宋_GBK}
-%%\newfontfamily\fzxbs{方正小标宋_GBK}
-%%\newfontfamily\fzhei{方正黑体_GBK}
-%%\newfontfamily\fzkai{方正楷体_GBK}
+%% \newfontfamily\fzss{方正书宋_GBK}
+%% \newfontfamily\fzxbs{方正小标宋_GBK}
+%% \newfontfamily\fzhei{方正黑体_GBK}
+%% \newfontfamily\fzkai{方正楷体_GBK}
 \newfontfamily\fzfs{方正仿宋_GBK}
 \newfontfamily\fzzdx{方正中等线_GBK}
 
 \newfontfamily\garamond{Adobe Garamond Pro}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% titlesec
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \titleformat
 {\chapter} % command
@@ -71,9 +91,34 @@
 \rule{\textwidth}{0.5pt}
 ] % after-code
 
-\titlespacing{\section}{12pc}{1.5ex plus .1ex minus .2ex}{1pc}
+\titleformat{\section}[hang]{\sffamily}
+{\hspace{-2.45em}\Large\textbf{\thesection}\enspace}{1pt}{\Large\bfseries\filright}
 
-%% 中文结构名字
+\titleformat{\subsection}[hang]{\sffamily}
+{\large\textbf{\thesubsection}\enspace}{1pt}{\large\bfseries\filright}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 中文结构
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\makeatletter
+\renewcommand\part{%
+   \if@openright
+     \cleardoublepage
+   \else
+     \clearpage
+   \fi
+   \thispagestyle{empty}%
+   \if@twocolumn
+     \onecolumn
+     \@tempswatrue
+   \else
+     \@tempswafalse
+   \fi
+   \null\vfil
+   \secdef\@part\@spart}
+\makeatother
+
 \renewcommand{\contentsname}{目\hspace{1em}录}
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
@@ -84,9 +129,18 @@
 \renewcommand{\appendixname}{\bfseries 附\hspace{2em}录}
 \renewcommand{\indexname}{\bfseries 索\hspace{2em}引}
 
+%% 解决目录文字重叠
+\makeatletter
+\renewcommand{\numberline}[1]{%
+\settowidth\@tempdimb{#1\hspace{0.5em}}%
+\ifdim\@tempdima<\@tempdimb%
+  \@tempdima=\@tempdimb%
+\fi%
+\hb@xt@\@tempdima{\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb}
+\makeatother
 
 \title{\Huge \textbf{Book Title 中文标题}}
-\author{\Large{胡志飞} \\ WisdomFusion@gmail.com}
+\author{\LARGE 胡志飞\hspace{1em}著}
 \date{\today}
 
 \begin{document}
@@ -97,12 +151,13 @@
 
 \frontmatter
 
-\section*{序}
+\chapter*{序}
 \addcontentsline{toc}{chapter}{序}
 
 本书作序。
 
 \clearpage\thispagestyle{empty}
+
 
 \tableofcontents
 \clearpage\thispagestyle{empty}
@@ -116,6 +171,7 @@
 
 \lipsum[3]
 
+\clearpage
 
 \section{中文的节标题}
 
