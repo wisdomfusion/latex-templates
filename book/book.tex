@@ -1,0 +1,141 @@
+%!TEX program = xelatex
+\documentclass{ctexbook}
+\usepackage[utf8]{inputenc}
+%%\usepackage{ebgaramond}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{amsmath,mathrsfs,amsfonts}
+\usepackage[x11names]{xcolor}
+\usepackage{titlesec}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks,
+  linkcolor={red!50!black},
+  citecolor={blue!50!black},
+  urlcolor={blue!80!black}
+}
+
+\linespread{1.3}
+
+\geometry{
+  a4paper,
+  left=27mm,  %% or inner=23mm
+  right=27mm, %% or outer=18mm
+  top=25.4mm, bottom=25.4mm,
+  headheight=2.17cm,
+  headsep=4mm,
+  footskip=12mm
+}
+
+\setmainfont[Ligatures=TeX]{Minion Pro}
+\setsansfont{Myriad Pro}
+\setmonofont{Inconsolata}
+
+\setCJKmainfont[BoldFont={方正小标宋_GBK}, ItalicFont={方正楷体_GBK}]{方正书宋_GBK}
+\setCJKsansfont{方正黑体_GBK}
+\setCJKmonofont{方正中等线_GBK}
+
+\XeTeXlinebreaklocale "zh"
+\XeTeXlinebreakskip = 0pt plus 1pt
+
+%%\newfontfamily\fzss{方正书宋_GBK}
+%%\newfontfamily\fzxbs{方正小标宋_GBK}
+%%\newfontfamily\fzhei{方正黑体_GBK}
+%%\newfontfamily\fzkai{方正楷体_GBK}
+\newfontfamily\fzfs{方正仿宋_GBK}
+\newfontfamily\fzzdx{方正中等线_GBK}
+
+\newfontfamily\garamond{Adobe Garamond Pro}
+
+\titleformat
+{\chapter} % command
+[display] % shape
+{\bfseries\Large} % format
+{第 \thechapter 章} % label
+{0.5ex} % sep
+{
+  \rule{\textwidth}{1.5pt}
+  \vspace{1ex}
+  \centering
+} % before-code
+[
+\vspace{-0.5ex}%
+\rule{\textwidth}{0.5pt}
+] % after-code
+
+\titlespacing{\section}{12pc}{1.5ex plus .1ex minus .2ex}{1pc}
+
+%% 中文结构名字
+\renewcommand{\contentsname}{目\hspace{1em}录}
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\partname}{部分}
+\renewcommand{\listfigurename}{\bfseries 插图目录}
+\renewcommand{\listtablename}{\bfseries 表格目录}
+\renewcommand{\bibname}{\bfseries 参考文献}
+\renewcommand{\appendixname}{\bfseries 附\hspace{2em}录}
+\renewcommand{\indexname}{\bfseries 索\hspace{2em}引}
+
+
+\title{\Huge \textbf{Book Title 中文标题}}
+\author{\Large{胡志飞} \\ WisdomFusion@gmail.com}
+\date{\today}
+
+\begin{document}
+
+
+\maketitle
+\thispagestyle{empty}
+
+\frontmatter
+
+\section*{序}
+\addcontentsline{toc}{chapter}{序}
+
+本书作序。
+
+\clearpage\thispagestyle{empty}
+
+\tableofcontents
+\clearpage\thispagestyle{empty}
+
+
+\mainmatter
+
+\part{中文的部分标题}
+
+\chapter{中文的章标题}
+
+\lipsum[3]
+
+
+\section{中文的节标题}
+
+\lipsum[3]
+
+
+\section{English section title}
+
+\lipsum[2-5]
+
+\chapter{English chapter title}
+
+\section{再来一个小节}
+
+该小节的内容。
+
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
