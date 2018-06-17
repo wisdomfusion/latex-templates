@@ -5,7 +5,7 @@
 %% WisdomFusion@gmail.com
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass{ctexbook}
+\documentclass[a4paper,twoside]{ctexbook}
 \usepackage{fontspec}
 \usepackage{xunicode}
 \usepackage{geometry}
@@ -15,7 +15,7 @@
 %% \usepackage{amsmath,mathrsfs,amsfonts}
 \usepackage[x11names]{xcolor}
 \usepackage{titletoc}
-\usepackage{titlesec}
+\usepackage[clearempty]{titlesec}
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{colortbl}
@@ -28,17 +28,22 @@
 \hypersetup{
   bookmarksnumbered,
   colorlinks,
-  linkcolor={red!50!black},
-  citecolor={blue!50!black},
-  urlcolor={blue!80!black}
+  linkcolor={magenta},
+  citecolor={magenta},
+  urlcolor={teal}
 }
 
 \linespread{1.3}
 
 \geometry{
-  a4paper,
-  left=27mm,  %% or inner=23mm
-  right=27mm, %% or outer=18mm
+  textwidth=138mm,
+  textheight=215mm,
+  %% left=27mm,
+  %% or
+  inner=23mm,
+  %% right=27mm,
+  %% or
+  outer=18mm,
   top=25.4mm, bottom=25.4mm,
   headheight=2.17cm,
   headsep=4mm,
@@ -55,17 +60,17 @@
 \setsansfont{Myriad Pro}
 \setmonofont{Inconsolata}
 
-\setCJKmainfont[BoldFont={方正小标宋_GBK}, ItalicFont={方正楷体_GBK}]{方正书宋_GBK}
+\setCJKmainfont[BoldFont={方正小标宋_GBK}, ItalicFont={方正楷体_GBK}, BoldItalicFont={方正仿宋_GBK}]{方正书宋_GBK}
 \setCJKsansfont{方正黑体_GBK}
 \setCJKmonofont{方正中等线_GBK}
 
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip = 0pt plus 1pt
 
-%% \newfontfamily\fzss{方正书宋_GBK}
-%% \newfontfamily\fzxbs{方正小标宋_GBK}
-%% \newfontfamily\fzhei{方正黑体_GBK}
-%% \newfontfamily\fzkai{方正楷体_GBK}
+\newfontfamily\fzss{方正书宋_GBK}
+\newfontfamily\fzxbs{方正小标宋_GBK}
+\newfontfamily\fzhei{方正黑体_GBK}
+\newfontfamily\fzkai{方正楷体_GBK}
 \newfontfamily\fzfs{方正仿宋_GBK}
 \newfontfamily\fzzdx{方正中等线_GBK}
 
@@ -79,23 +84,28 @@
 {\chapter} % command
 [display] % shape
 {\bfseries\Large} % format
-{第 \thechapter 章} % label
-{0.5ex} % sep
 {
-  \rule{\textwidth}{1.5pt}
-  \vspace{1ex}
-  \centering
+  \rule{\textwidth}{0.5pt}
+  \flushright
+  \zihao{-4}
+  第 \thechapter 章
+} % label
+{1ex} % sep
+{
+  \vspace{5ex}
+  \flushright
+  \zihao{3}
 } % before-code
 [
 \vspace{-0.5ex}%
-\rule{\textwidth}{0.5pt}
+\rule{\textwidth}{1pt}
 ] % after-code
 
-\titleformat{\section}[hang]{\sffamily}
-{\hspace{-2.45em}\Large\textbf{\thesection}\enspace}{1pt}{\Large\bfseries\filright}
+\titleformat{\section}[hang]{\rmfamily}
+{\zihao{-3}\bfseries\thesection\enspace}{1pt}{\zihao{-3}\bfseries\filright}
 
-\titleformat{\subsection}[hang]{\sffamily}
-{\large\textbf{\thesubsection}\enspace}{1pt}{\large\bfseries\filright}
+\titleformat{\subsection}[hang]{\rmfamily}
+{\zihao{-4}\bfseries\thesubsection\enspace}{1pt}{\zihao{4}\bfseries\filright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 中文结构
@@ -103,20 +113,21 @@
 
 \makeatletter
 \renewcommand\part{%
-   \if@openright
-     \cleardoublepage
-   \else
-     \clearpage
-   \fi
-   \thispagestyle{empty}%
-   \if@twocolumn
-     \onecolumn
-     \@tempswatrue
-   \else
-     \@tempswafalse
-   \fi
-   \null\vfil
-   \secdef\@part\@spart}
+  \if@openright
+    \cleardoublepage
+  \else
+    \clearpage
+  \fi
+  \thispagestyle{empty}%
+  \if@twocolumn
+    \onecolumn
+    \@tempswatrue
+  \else
+    \@tempswafalse
+  \fi
+  \null\vfil
+  \secdef\@part\@spart
+}
 \makeatother
 
 \renewcommand{\contentsname}{目\hspace{1em}录}
@@ -129,6 +140,7 @@
 \renewcommand{\appendixname}{\bfseries 附\hspace{2em}录}
 \renewcommand{\indexname}{\bfseries 索\hspace{2em}引}
 
+
 %% 解决目录文字重叠
 \makeatletter
 \renewcommand{\numberline}[1]{%
@@ -139,15 +151,22 @@
 \hb@xt@\@tempdima{\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb}
 \makeatother
 
-\title{\Huge \textbf{Book Title 中文标题}}
-\author{\LARGE 胡志飞\hspace{1em}著}
-\date{\today}
+
 
 \begin{document}
 
-
-\maketitle
+%% title page
+\begin{titlepage}
+  \centering
+  \vspace*{20ex}
+  {\zihao{1} \textbf{Book Title 中文书名} \par}
+  \vspace{10ex}
+  {\zihao{4} \textit{胡志飞}\quad{}编著 \par}
+  \vfill
+  {\zihao{4}\ 北京\ $\bullet$\ BEIJING}
+\end{titlepage}
 \thispagestyle{empty}
+
 
 \frontmatter
 
@@ -156,18 +175,39 @@
 
 本书作序。
 
-\clearpage\thispagestyle{empty}
 
 
-\tableofcontents
-\clearpage\thispagestyle{empty}
+\chapter*{前言}
+\addcontentsline{toc}{chapter}{前言}
+
+本书前言。
+
+
+{
+  \hypersetup{hidelinks}
+  \tableofcontents
+}
+
 
 
 \mainmatter
 
+
 \part{中文的部分标题}
 
 \chapter{中文的章标题}
+
+\hfill
+\begin{minipage}[H]{.65\linewidth}
+{
+  \hypersetup{hidelinks}
+  \startcontents[chapters]
+  \printcontents[chapters]{}{1}{\contentsmargin{1em}}
+}
+\end{minipage}
+\hspace{1em}
+
+\vspace{10ex}
 
 \lipsum[3]
 
@@ -175,7 +215,15 @@
 
 \section{中文的节标题}
 
-\lipsum[3]
+\lipsum[3-5]
+
+\subsection{subsection 小节}
+
+中文\textbf{字体}测试。测试\textbf{中文和\textit{English字体样式}}。
+
+{\fzfs 仿宋}
+
+\subsection{subsection 小节2}
 
 
 \section{English section title}
@@ -183,6 +231,22 @@
 \lipsum[2-5]
 
 \chapter{English chapter title}
+
+\hfill
+\begin{minipage}[H]{.65\linewidth}
+{
+  \hypersetup{hidelinks}
+  \startcontents[chapters]
+  \printcontents[chapters]{}{1}{\contentsmargin{1em}}
+}
+\end{minipage}
+\hspace{1em}
+
+\vspace{10ex}
+
+\lipsum[3]
+
+\clearpage
 
 \section{再来一个小节}
 
