@@ -102,7 +102,7 @@
 ] % after-code
 
 \titleformat{\section}[hang]{\rmfamily}
-{\zihao{-3}\bfseries\thesection\enspace}{1pt}{\zihao{-3}\bfseries\filright}
+{\centering\zihao{-3}\bfseries\thesection\enspace}{1pt}{\zihao{-3}\bfseries}
 
 \titleformat{\subsection}[hang]{\rmfamily}
 {\zihao{-4}\bfseries\thesubsection\enspace}{1pt}{\zihao{4}\bfseries\filright}
@@ -111,24 +111,25 @@
 %% 中文结构
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\makeatletter
-\renewcommand\part{%
-  \if@openright
-    \cleardoublepage
-  \else
-    \clearpage
-  \fi
-  \thispagestyle{empty}%
-  \if@twocolumn
-    \onecolumn
-    \@tempswatrue
-  \else
-    \@tempswafalse
-  \fi
-  \null\vfil
-  \secdef\@part\@spart
-}
-\makeatother
+%% 去除部分页页码，不需要请注释
+%% \makeatletter
+%% \renewcommand\part{%
+%%   \if@openright
+%%     \cleardoublepage
+%%   \else
+%%     \clearpage
+%%   \fi
+%%   \thispagestyle{empty}%
+%%   \if@twocolumn
+%%     \onecolumn
+%%     \@tempswatrue
+%%   \else
+%%     \@tempswafalse
+%%   \fi
+%%   \null\vfil
+%%   \secdef\@part\@spart
+%% }
+%% \makeatother
 
 \renewcommand{\contentsname}{目\hspace{1em}录}
 \renewcommand{\figurename}{图}
@@ -152,13 +153,12 @@
 \makeatother
 
 
-
 \begin{document}
 
 %% title page
 \begin{titlepage}
   \centering
-  \vspace*{20ex}
+  \vspace*{25ex}
   {\zihao{1} \textbf{Book Title 中文书名} \par}
   \vspace{10ex}
   {\zihao{4} \textit{胡志飞}\quad{}编著 \par}
@@ -197,16 +197,13 @@
 
 \chapter{中文的章标题}
 
-\hfill
-\begin{minipage}[H]{.65\linewidth}
+\hspace{.15\linewidth}\begin{minipage}[H]{.7\linewidth}
 {
   \hypersetup{hidelinks}
   \startcontents[chapters]
-  \printcontents[chapters]{}{1}{\contentsmargin{1em}}
+  \printcontents[chapters]{}{1}{\contentsmargin{1em}\setcounter{tocdepth}{1}}
 }
 \end{minipage}
-\hspace{1em}
-
 \vspace{10ex}
 
 \lipsum[3]
@@ -232,16 +229,13 @@
 
 \chapter{English chapter title}
 
-\hfill
-\begin{minipage}[H]{.65\linewidth}
+\hspace{.15\linewidth}\begin{minipage}[H]{.7\linewidth}
 {
   \hypersetup{hidelinks}
   \startcontents[chapters]
-  \printcontents[chapters]{}{1}{\contentsmargin{1em}}
+  \printcontents[chapters]{}{1}{\contentsmargin{1em}\setcounter{tocdepth}{1}}
 }
 \end{minipage}
-\hspace{1em}
-
 \vspace{10ex}
 
 \lipsum[3]
