@@ -1,4 +1,5 @@
 *.ptc
+*.rel
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
