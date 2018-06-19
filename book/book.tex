@@ -13,8 +13,9 @@
 \usepackage{enumerate}
 \usepackage{amsmath,mathrsfs,amsfonts}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{titletoc}
+\usepackage{minitoc}
 \usepackage[clearempty]{titlesec}
+\usepackage{titletoc}
 \usepackage{caption}
 \usepackage{tabularx}
 \usepackage{booktabs}
@@ -88,6 +89,7 @@
 %% 标题设定
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% chapter
 \titleformat
 {\chapter} % command
 [display] % shape
@@ -109,9 +111,16 @@
 \rule{\textwidth}{1pt}
 ] % after-code
 
-\titleformat{\section}[hang]{\rmfamily}
-{\centering\zihao{-3}\bfseries\thesection\enspace}{1pt}{\zihao{-3}\bfseries}
 
+%% section
+\titleformat{\section}
+[hang]
+{\rmfamily}
+{\centering\zihao{-3}\bfseries\thesection\enspace}
+{1pt}
+{\zihao{-3}\bfseries}
+
+%% subsection
 \titleformat{\subsection}[hang]{\rmfamily}
 {\zihao{-4}\bfseries\thesubsection\enspace}{1pt}{\zihao{4}\bfseries\filright}
 
@@ -235,23 +244,34 @@
 
 \frontmatter
 
+
+\dominitoc
+\mtcsettitle{minitoc}{本章内容}
+\mtcsetrules{*}{off}
+
+
 \chapter*{序}
-\addcontentsline{toc}{chapter}{序}
+\addstarredchapter{序}
 
 本书作序。
 
 
 \chapter*{前言}
-\addcontentsline{toc}{chapter}{前言}
+\addstarredchapter{前言}
 
 本书前言。
 
 
+%% 目录
+\addstarredchapter{目录}
 {
   \hypersetup{hidelinks}
   \tableofcontents
 }
 
+
+%% 代码列表
+\addstarredchapter{代码列表}
 {
   \hypersetup{hidelinks}
   \lstlistoflistings
@@ -265,13 +285,11 @@
 
 \chapter{中文的章标题}
 
-\hspace{.15\linewidth}\begin{minipage}[H]{.7\linewidth}
 {
   \hypersetup{hidelinks}
-  \startcontents[chapters]
-  \printcontents[chapters]{}{1}{\contentsmargin{1em}\setcounter{tocdepth}{1}}
+  \minitoc
 }
-\end{minipage}
+
 \vspace{10ex}
 
 \lipsum[3]
@@ -336,13 +354,11 @@ def incmatrix(genl1,genl2):
 
 \chapter{English chapter title}
 
-\hspace{.15\linewidth}\begin{minipage}[H]{.7\linewidth}
 {
   \hypersetup{hidelinks}
-  \startcontents[chapters]
-  \printcontents[chapters]{}{1}{\contentsmargin{1em}\setcounter{tocdepth}{1}}
+  \minitoc
 }
-\end{minipage}
+
 \vspace{10ex}
 
 \lipsum[3]
