@@ -1,5 +1,4 @@
 %!TEX program = xelatex
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% book template
 %% WisdomFusion@gmail.com
@@ -25,6 +24,11 @@
 \usepackage{multicol}
 \usepackage{listings}
 \usepackage{lipsum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% hyperref settings
+%% 超链接设定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \usepackage{hyperref}
 \hypersetup{
@@ -54,6 +58,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% fonts settings
+%% 字体设定
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% \usepackage{ebgaramond}
@@ -80,6 +85,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% titlesec
+%% 标题设定
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \titleformat
@@ -109,8 +115,10 @@
 \titleformat{\subsection}[hang]{\rmfamily}
 {\zihao{-4}\bfseries\thesubsection\enspace}{1pt}{\zihao{4}\bfseries\filright}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 中文结构
+%% Chinese names
+%% 中文名称
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \renewcommand{\contentsname}{目\hspace{1em}录}
@@ -127,7 +135,10 @@
 \renewcommand{\lstlistlistingname}{\lstlistingname 列表}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 解决目录文字重叠问题
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \usepackage[titles]{tocloft}
 \renewcommand{\cftdot}{$\cdot$}
 \renewcommand{\cftdotsep}{1}
@@ -152,6 +163,11 @@
   \hb@xt@\@tempdima{\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb}
 \makeatother
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% code listings
+%% 代码块设定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \colorlet{lightergray}{black!5!white}
 
@@ -195,6 +211,12 @@
 \usepackage{indentfirst}
 \setlength{\parindent}{2em}
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% beginning of the book
+%% 文档开始
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{document}
 
