@@ -12,10 +12,11 @@
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \usepackage{enumerate}
-%% \usepackage{amsmath,mathrsfs,amsfonts}
-\usepackage[x11names]{xcolor}
+\usepackage{amsmath,mathrsfs,amsfonts}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{titletoc}
 \usepackage[clearempty]{titlesec}
+\usepackage{caption}
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{colortbl}
@@ -112,74 +113,83 @@
 %% 中文结构
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% 去除部分页页码，不需要请注释
-%% \makeatletter
-%% \renewcommand\part{%
-%%   \if@openright
-%%     \cleardoublepage
-%%   \else
-%%     \clearpage
-%%   \fi
-%%   \thispagestyle{empty}%
-%%   \if@twocolumn
-%%     \onecolumn
-%%     \@tempswatrue
-%%   \else
-%%     \@tempswafalse
-%%   \fi
-%%   \null\vfil
-%%   \secdef\@part\@spart
-%% }
-%% \makeatother
-
 \renewcommand{\contentsname}{目\hspace{1em}录}
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
 \renewcommand{\partname}{部分}
-\renewcommand{\listfigurename}{\bfseries 插图目录}
-\renewcommand{\listtablename}{\bfseries 表格目录}
-\renewcommand{\bibname}{\bfseries 参考文献}
-\renewcommand{\appendixname}{\bfseries 附\hspace{2em}录}
-\renewcommand{\indexname}{\bfseries 索\hspace{2em}引}
+\renewcommand{\listfigurename}{插图目录}
+\renewcommand{\listtablename}{表格目录}
+\renewcommand{\bibname}{参考文献}
+\renewcommand{\appendixname}{附\hspace{1em}录}
+\renewcommand{\indexname}{索\hspace{1em}引}
 
 \renewcommand{\lstlistingname}{代码}
 \renewcommand{\lstlistlistingname}{\lstlistingname 列表}
 
-%% 解决目录文字重叠
+
+%% 解决目录文字重叠问题
+\usepackage[titles]{tocloft}
+\renewcommand{\cftdot}{$\cdot$}
+\renewcommand{\cftdotsep}{1}
+\setlength{\cftbeforechapskip}{10pt}
+\setlength{\cftbeforesecskip}{3pt}
+\setlength{\cftbeforesubsecskip}{0pt}
+\renewcommand{\cftchapfont}{\zihao{4}\songti}
+\renewcommand{\cftsecfont}{\zihao{-4}\songti}
+\renewcommand{\cftsubsecfont}{\zihao{5}\songti}
+\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
+\renewcommand{\cftchapdotsep}{\cftdotsep}
+\renewcommand{\cftchappagefont}{\zihao{4}}
+\renewcommand{\cftsecpagefont}{\zihao{-4}}
+\renewcommand{\cftsubsecpagefont}{\zihao{5}}
+
 \makeatletter
 \renewcommand{\numberline}[1]{%
-\settowidth\@tempdimb{#1\hspace{0.5em}}%
-\ifdim\@tempdima<\@tempdimb%
+  \settowidth\@tempdimb{#1\hspace{0.5em}}%
+  \ifdim\@tempdima<\@tempdimb%
   \@tempdima=\@tempdimb%
-\fi%
-\hb@xt@\@tempdima{\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb}
+  \fi%
+  \hb@xt@\@tempdima{\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb}
 \makeatother
 
-\definecolor{codegreen}{rgb}{0,0.6,0}
-\definecolor{codegray}{rgb}{0.5,0.5,0.5}
-\definecolor{codepurple}{rgb}{0.58,0,0.82}
-\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\colorlet{lightergray}{black!5!white}
 
 \lstdefinestyle{mystyle}{
-  %backgroundcolor=\color{backcolour},
-  commentstyle=\color{codegreen},
-  keywordstyle=\color{magenta},
-  numberstyle=\small\color{codegray},
-  stringstyle=\color{codepurple},
-  basicstyle=\normalsize\ttfamily,
+  %backgroundcolor=\color{lightergray},
+  commentstyle=\color{gray},
+  keywordstyle=\color{blue},
+  numberstyle=\color{gray},
+  stringstyle=\color{red},
+  basicstyle=\ttfamily,
+  morekeywords={as},
   breakatwhitespace=false,
   breaklines=true,
-  captionpos=b,
+  captionpos=t,
   keepspaces=true,
-  numbers=left,
+  numbers=none,
   numbersep=5pt,
   showspaces=false,
   showstringspaces=false,
   showtabs=false,
-  xleftmargin=.75cm,frame=tlbr,framesep=5pt,framerule=0pt
+  %xleftmargin=.75cm,
+  frame=tlbr,
+  framesep=5pt,
+  framerule=0pt,
+  %rulecolor=\color{lightgray}
 }
 
 \lstset{style=mystyle}
+
+
+\DeclareCaptionFormat{codecaptionformat}{%
+  \colorbox{black!20}{
+    \parbox{\textwidth}{#1#2\ttfamily#3}
+  }
+} 
+\captionsetup[lstlisting]{format=codecaptionformat}
+
+
 
 %% 添加首行缩进，两个字符
 \usepackage{indentfirst}
@@ -220,7 +230,10 @@
   \tableofcontents
 }
 
-\lstlistoflistings
+{
+  \hypersetup{hidelinks}
+  \lstlistoflistings
+}
 
 
 \mainmatter
@@ -240,8 +253,6 @@
 \vspace{10ex}
 
 \lipsum[3]
-
-\clearpage
 
 \section{中文的节标题}
 
@@ -314,7 +325,6 @@ def incmatrix(genl1,genl2):
 
 \lipsum[3]
 
-\clearpage
 
 \section{再来一个小节}
 
