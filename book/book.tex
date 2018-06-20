@@ -23,6 +23,7 @@
 \usepackage{ulem} % \uline
 \usepackage{multicol}
 \usepackage{listings}
+\usepackage{zhnumber}
 \usepackage{lipsum}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -91,6 +92,18 @@
 %% titlesec
 %% 标题设定
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% part
+\titleformat{\part} % command
+  [display] % shape
+  {\bfseries} % format
+  {
+    \centering
+    \zihao{4}第{\zhnum{part}}部分
+    \rule[2ex]{\textwidth}{0.5pt}
+  } % label
+  {1pt} % sep
+  {\centering\vspace*{-8ex}\zihao{3}} % before-code
 
 %% chapter
 \titleformat{\chapter} % command
@@ -226,12 +239,7 @@
     \vspace{20ex}
     
     %% 作者
-    {\zihao{4}\textit{胡志飞}~编著} \\
-    
-    \ctexset{
-      today=big
-    }
-    {\zihao{4}\today}
+    {\zihao{4}\textit{某某某}~编著}
   \end{minipage}
   
   \vfill
@@ -282,6 +290,7 @@
 
 
 \part{中文的部分标题}
+
 
 \chapter{中文的章标题}
 
