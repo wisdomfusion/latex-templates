@@ -13,9 +13,8 @@
 \usepackage{enumerate}
 \usepackage{amsmath,mathrsfs,amsfonts}
 \usepackage[dvipsnames]{xcolor}
-\usepackage{minitoc}
 \usepackage[clearempty]{titlesec}
-\usepackage{titletoc}
+\usepackage{minitoc}
 \usepackage{caption}
 \usepackage{tabularx}
 \usepackage{booktabs}
@@ -153,35 +152,6 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% 解决目录文字重叠问题
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage[titles]{tocloft}
-\renewcommand{\cftdot}{$\cdot$}
-\renewcommand{\cftdotsep}{1}
-\setlength{\cftbeforechapskip}{10pt}
-\setlength{\cftbeforesecskip}{3pt}
-\setlength{\cftbeforesubsecskip}{0pt}
-\renewcommand{\cftchapfont}{\zihao{4}\songti}
-\renewcommand{\cftsecfont}{\zihao{-4}\songti}
-\renewcommand{\cftsubsecfont}{\zihao{5}\songti}
-\renewcommand{\cftchapleader}{\cftdotfill{\cftchapdotsep}}
-\renewcommand{\cftchapdotsep}{\cftdotsep}
-\renewcommand{\cftchappagefont}{\zihao{4}}
-\renewcommand{\cftsecpagefont}{\zihao{-4}}
-\renewcommand{\cftsubsecpagefont}{\zihao{5}}
-
-\makeatletter
-\renewcommand{\numberline}[1]{%
-  \settowidth\@tempdimb{#1\hspace{0.5em}}%
-  \ifdim\@tempdima<\@tempdimb%
-  \@tempdima=\@tempdimb%
-  \fi%
-  \hb@xt@\@tempdima{\@cftbsnum #1\@cftasnum\hfil}\@cftasnumb}
-\makeatother
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% code listings
 %% 代码块设定
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -218,7 +188,7 @@
   \colorbox{black!20}{
     \parbox{\textwidth}{#1#2\ttfamily#3}
   }
-} 
+}
 \captionsetup[lstlisting]{format=codecaptionformat}
 
 
@@ -228,36 +198,8 @@
 \setlength{\parindent}{2em}
 
 %% 行距
-\linespread{1.3}
+\linespread{1.5}
 
-
-\titlecontents{part}
-[0em]
-{\bfseries\zihao{4}}
-{\thecontentslabel\quad}
-{}
-{\zihao{-4}\enspace\dotfill\enspace\thecontentspage}
-
-\titlecontents{chapter}
-[0em]
-{}
-{\zihao{4}\thecontentslabel\quad}
-{}
-{\zihao{-4}\enspace\dotfill\enspace\thecontentspage}
-
-\titlecontents{section}
-[2em]
-{}
-{\zihao{-4}\thecontentslabel\quad}
-{}
-{\zihao{-4}\enspace\dotfill\enspace\thecontentspage}
-
-\titlecontents{subsection}
-[4em]
-{}
-{\zihao{-4}\thecontentslabel\quad}
-{}
-{\zihao{-4}\enspace\dotfill\enspace\thecontentspage}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -269,12 +211,33 @@
 
 %% title page
 \begin{titlepage}
-  \centering
   \vspace*{25ex}
-  {\zihao{1} \textbf{Book Title 中文书名} \par}
-  \vspace{10ex}
-  {\zihao{4} \textit{胡志飞}\quad{}编著 \par}
+  
+  \hspace{0.05\textwidth}\begin{minipage}{.9\textwidth}
+    \flushright
+    
+    %%中文书名
+    {\zihao{1}\textbf{中文书名}}
+    
+    \rule[1ex]{\linewidth}{.5pt}
+    
+    %% 英文书名
+    {\zihao{2}Book Title} \\
+    
+    \vspace{20ex}
+    
+    %% 作者
+    {\zihao{4}\textit{胡志飞}~编著} \\
+    
+    \ctexset{
+      today=big
+    }
+    {\zihao{4}\today}
+  \end{minipage}
+  
   \vfill
+  
+  \centering
   {\zihao{4}北京 ~$\bullet$ ~BEIJING}
 \end{titlepage}
 \thispagestyle{empty}
