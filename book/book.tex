@@ -93,43 +93,42 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% chapter
-\titleformat
-{\chapter} % command
-[display] % shape
-{\bfseries} % format
-{
-  \rule{\textwidth}{0.5pt}
-  \flushright
-  \zihao{-4}
-  第 \thechapter 章
-} % label
-{1ex} % sep
-{
-  \vspace{5ex}
-  \flushright
-  \zihao{3}
-} % before-code
-[
-\vspace{-0.5ex}%
-\rule{\textwidth}{1pt}
-] % after-code
+\titleformat{\chapter} % command
+  [display] % shape
+  {\bfseries} % format
+  {
+    \rule{\textwidth}{0.5pt}
+    \flushright
+    \zihao{-4}
+    第 \thechapter 章
+  } % label
+  {1ex} % sep
+  {
+    \vspace{5ex}
+    \flushright
+    \zihao{3}
+  } % before-code
+  [
+  \vspace{-0.5ex}%
+  \rule{\textwidth}{1pt}
+  ] % after-code
 
 
 %% section
 \titleformat{\section}
-[hang]
-{\rmfamily}
-{\centering\zihao{-3}\bfseries\thesection\enspace}
-{1pt}
-{\zihao{-3}\bfseries}
+  [hang]
+  {\rmfamily}
+  {\centering\zihao{-3}\bfseries\thesection\enspace}
+  {1pt}
+  {\zihao{-3}\bfseries}
 
 %% subsection
 \titleformat{\subsection}
-[hang]
-{\rmfamily}
-{\zihao{-4}\bfseries\thesubsection\enspace}
-{1pt}
-{\zihao{4}\bfseries\filright}
+  [hang]
+  {\rmfamily}
+  {\zihao{-4}\bfseries\thesubsection\enspace}
+  {1pt}
+  {\zihao{4}\bfseries\filright}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -252,19 +251,19 @@
 
 
 \chapter*{序}
-\addstarredchapter{序}
+%%\addstarredchapter{序}
 
 本书作序。
 
 
 \chapter*{前言}
-\addstarredchapter{前言}
+%%\addstarredchapter{前言}
 
 本书前言。
 
 
 %% 目录
-\addstarredchapter{目录}
+%%\addstarredchapter{目录}
 {
   \hypersetup{hidelinks}
   \tableofcontents
@@ -272,11 +271,11 @@
 
 
 %% 代码列表
-\addstarredchapter{代码列表}
-{
-  \hypersetup{hidelinks}
-  \lstlistoflistings
-}
+%%\addstarredchapter{代码列表}
+%%{
+%%  \hypersetup{hidelinks}
+%%  \lstlistoflistings
+%%}
 
 
 \mainmatter
