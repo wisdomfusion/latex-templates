@@ -10,11 +10,12 @@
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 \usepackage{enumerate}
 \usepackage{amsmath,mathrsfs,amsfonts}
 \usepackage[dvipsnames]{xcolor}
 \usepackage[clearempty]{titlesec}
-%%\usepackage{tocloft}
+\usepackage[titles]{tocloft}
 \usepackage{caption}
 \usepackage{tabularx}
 \usepackage{booktabs}
@@ -24,6 +25,9 @@
 \usepackage{multicol}
 \usepackage{listings}
 \usepackage{zhnumber}
+\usepackage{tikz}
+\usepackage{epigraph}
+\usepackage[skins]{tcolorbox}
 \usepackage{lipsum}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -98,32 +102,29 @@
   [display] % shape
   {\bfseries} % format
   {
-    \centering
-    \zihao{4}第{\zhnum{part}}部分
-    \rule[2ex]{\textwidth}{0.5pt}
+    \zihao{4}\textsf{PART~\thepart} \hfill 第{\zhnum{part}}部
+    %\rule[3ex]{\textwidth}{.5pt}
+    \vspace{1ex}
+    \hrule width \hsize height .5pt
   } % label
   {1pt} % sep
-  {\centering\vspace*{-8ex}\zihao{3}} % before-code
+  {\vspace{-6ex}\flushright\zihao{2}} % before-code
+  [] % after-code
 
 %% chapter
 \titleformat{\chapter} % command
   [display] % shape
   {\bfseries} % format
   {
-    \rule{\textwidth}{0.5pt}
-    \flushright
-    \zihao{-4}
-    第 \thechapter 章
+    \flushright\zihao{4}第\zhnum{chapter}章
   } % label
   {1ex} % sep
   {
-    \vspace{5ex}
-    \flushright
-    \zihao{3}
+    \hrule width \hsize height .5pt
+    \flushright\zihao{2}
   } % before-code
   [
-  \vspace{-0.5ex}%
-  \rule{\textwidth}{1pt}
+  \vspace{5ex}
   ] % after-code
 
 
@@ -167,6 +168,22 @@
 %% code listings
 %% 代码块设定
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\lstdefinelanguage{JavaScript}{
+  keywords={import, export, class, typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywords={class, export, boolean, throw, implements, import, this},
+  ndkeywordstyle=\color{darkgray}\bfseries,
+  identifierstyle=\color{black},
+  sensitive=false,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  commentstyle=\color{purple}\ttfamily,
+  stringstyle=\color{red}\ttfamily,
+  morestring=[b]',
+  morestring=[b]"
+}
 
 \colorlet{lightergray}{black!5!white}
 
@@ -229,17 +246,19 @@
     \flushright
     
     %%中文书名
-    {\zihao{1}\textbf{中文书名}}
+    {\zihao{1}\textbf{中文书名：Angular 应用安全编程}}
     
-    \rule[1ex]{\linewidth}{.5pt}
+    \rule{\linewidth}{.5pt}
+    
+    \vspace{2ex}
     
     %% 英文书名
-    {\zihao{2}Book Title} \\
+    {\zihao{2}\textsf{Book Title: Securing Angular Applications}} \\
     
     \vspace{20ex}
     
     %% 作者
-    {\zihao{4}\textit{某某某}~编著}
+    {\zihao{4}\textit{Google Angular Team}~编著}
   \end{minipage}
   
   \vfill
@@ -253,27 +272,24 @@
 \frontmatter
 
 
-\chapter*{序}
-\addcontentsline{toc}{chapter}{序}
+\chapter{序}
 
-本书作序。
+Angular 是一个开发平台。它能帮你更轻松的构建 Web 应用。Angular 集声明式模板、依赖注入、端到端工具和一些最佳实践于一身，为你解决开发方面的各种挑战。Angular 为开发者提升构建 Web、手机或桌面应用的能力。
 
+\chapter{前言}
 
-\chapter*{前言}
-\addcontentsline{toc}{chapter}{前言}
-
-本书前言。
-
+Web 应用程序的安全涉及到很多方面。针对常见的漏洞和攻击，比如跨站脚本攻击，Angular 提供了一些内置的保护措施。
 
 %% 目录
+\clearpage
 \addcontentsline{toc}{chapter}{目录}
 {
   \hypersetup{hidelinks}
   \tableofcontents
 }
 
-
 %% 代码列表
+\clearpage
 \addcontentsline{toc}{chapter}{代码列表}
 {
   \hypersetup{hidelinks}
@@ -284,17 +300,24 @@
 \mainmatter
 
 
-\part{中文的部分标题}
+\part{Angular 应用基础}
 
 
-\chapter{中文的章标题}
+\chapter{核心知识}
+
+Angular 是一个用 HTML 和 TypeScript 构建客户端应用的平台与框架。 Angular 本身使用 TypeScript 写成的。它将核心功能和可选功能作为一组 TypeScript 库进行实现，你可以把它们导入你的应用中。
 
 
-\lipsum[3]
+\section{架构概览}
 
-\section{中文的节标题}
+Angular 的基本构造块是 NgModule，它为组件提供了编译的上下文环境。 NgModule 会把相关的代码收集到一些功能集中。Angular 应用就是由一组 NgModule 定义出的。 应用至少会有一个用于引导应用的根模块，通常还会有很多特性模块。
 
-\lipsum[3-5]
+\begin{itemize}
+  \item 组件定义\textbf{视图}。视图是一组可见的屏幕元素，Angular 可以根据你的程序逻辑和数据来选择和修改它们。 每个应用都至少有一个根组件。
+  \item 组件使用\textbf{服务}。服务会提供那些与视图不直接相关的功能。服务提供商可以作为依赖被注入到组件中， 这能让你的代码更加模块化、可复用，而且高效。
+\end{itemize}
+
+强行在这里插入一个公式：
 
 \begin{equation}
   \label{eq:1}
@@ -303,65 +326,118 @@
    \lim_{x\to 0}{\frac{e^x}{2}}={\frac{1}{2}}
 \end{equation}
 
-\subsection{subsection 小节}
 
-中文\textbf{字体}测试。测试\textbf{中文和\textit{English字体样式}}。公式\ref{eq:1}
+\subsection{模块}
 
-{\fzfs 仿宋}
+Angular 定义了 NgModule，它和 JavaScript（ES2015） 的模块不同而且有一定的互补性。 NgModule 为一个组件集声明了编译的上下文环境，它专注于某个应用领域、某个工作流或一组紧密相关的能力。 NgModule 可以将其组件和一组相关代码（如服务）关联起来，形成功能单元。
 
-\subsection{subsection 小节2}
+每个 Angular 应用都有一个根模块，通常命名为 AppModule。根模块提供了用来启动应用的引导机制。 一个应用通常会包含很多功能模块。
 
-代码示例：
+像 JavaScript 模块一样，NgModule 也可以从其它 NgModule 中导入功能，并允许导出它们自己的功能供其它 NgModule 使用。 比如，要在你的应用中使用路由器（Router）服务，就要导入 Router 这个 NgModule。
 
-\begin{lstlisting}[language=Python,caption={Python example}]
-import numpy as np
+把你的代码组织成一些清晰的功能模块，可以帮助管理复杂应用的开发工作并实现可复用性设计。 另外，这项技术还能让你获得惰性加载（也就是按需加载模块）的优点，以尽可能减小启动时需要加载的代码体积。
 
-def incmatrix(genl1,genl2):
-    m = len(genl1)
-    n = len(genl2)
-    M = None #to become the incidence matrix
-    VT = np.zeros((n*m,1), int)  #dummy variable
+然后，我在这里强行引用上述公式\ref{eq:1}。
 
-    #compute the bitwise xor matrix
-    M1 = bitxormatrix(genl1)
-    M2 = np.triu(bitxormatrix(genl2),1)
+\subsection{模板、指令和数据绑定}
 
-    for i in range(m-1):
-        for j in range(i+1, m):
-            [r,c] = np.where(M2 == M1[i,j])
-            for k in range(len(r)):
-                VT[(i)*n + r[k]] = 1;
-                VT[(i)*n + c[k]] = 1;
-                VT[(j)*n + r[k]] = 1;
-                VT[(j)*n + c[k]] = 1;
+模板会把 HTML 和 Angular 的标记（markup）组合起来，这些标记可以在 HTML 元素显示出来之前修改它们。 模板中的指令会提供程序逻辑，而绑定标记会把你应用中的数据和 DOM 连接在一起。
 
-                if M is None:
-                    M = np.copy(VT)
-                else:
-                    M = np.concatenate((M, VT), 1)
+\begin{itemize}
+  \item \textbf{事件绑定}让你的应用可以通过更新应用的数据来响应目标环境下的用户输入。
+  \item \textbf{属性绑定}让你将从应用数据中计算出来的值插入到 HTML 中。
+\end{itemize}
 
-                VT = np.zeros((n*m,1), int)
+在视图显示出来之前，Angular 会先根据你的应用数据和逻辑来运行模板中的指令并解析绑定表达式，以修改 HTML 元素和 DOM。 Angular 支持\textbf{双向数据绑定}，这意味着 DOM 中发生的变化（比如用户的选择）同样可以反映回你的程序数据中。
 
-    return M
+\begin{lstlisting}[language=JavaScript,caption={src/app/app.module.ts}]
+import { NgModule }      from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+@NgModule({
+  imports:      [ BrowserModule ],
+  providers:    [ Logger ],
+  declarations: [ AppComponent ],
+  exports:      [ AppComponent ],
+  bootstrap:    [ AppComponent ]
+})
+export class AppModule { }
 \end{lstlisting}
 
 
-\section{English section title}
+\section{NgModule 和 JavaScript 的模块}
 
-\lipsum[2-5]
+NgModule 系统与 JavaScript（ES2015）用来管理 JavaScript 对象的模块系统不同，而且也没有直接关联。 这两种模块系统不同但互补。你可以使用它们来共同编写你的应用。
 
-
-\chapter{English chapter title}
-
-\vspace{10ex}
-
-\lipsum[3]
+JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
 
 
-\section{再来一个小节}
+\chapter{服务与依赖注入}
 
-该小节的内容。
+服务是一个广义的概念，它包括应用所需的任何值、函数或特性。狭义的服务是一个明确定义了用途的类。它应该做一些具体的事，并做好。
 
+
+\section{服务}
+
+\begin{lstlisting}[language=JavaScript,caption={src/app/app.module.ts}]
+export class Logger {
+  log(msg: any)   { console.log(msg); }
+  error(msg: any) { console.error(msg); }
+  warn(msg: any)  { console.warn(msg); }
+}
+\end{lstlisting}
+
+服务也可以依赖其它服务。比如，这里的 \verb|HeroService| 就依赖于 \verb|Logger| 服务，它还用 \verb|BackendService| 来获取英雄数据。\verb|BackendService| 还可能再转而依赖 \verb|HttpClient| 服务来从服务器异步获取英雄列表。
+
+\section{依赖注入（dependency injection）}
+
+\begin{wrapfigure}{l}{5.5cm}
+  \centering
+  \includegraphics[scale=.7]{figs/dependency-injection.png}
+  \caption{Dependency Injection}
+\end{wrapfigure}
+\label{fig:di}
+
+组件是服务的消费者，也就是说，你可以把一个服务注入到组件中，让组件类得以访问该服务类。
+
+在 Angular 中，要把一个类定义为服务，就要用 @Injectable 装饰器来提供元数据，以便让 Angular 可以把它作为依赖注入到组件中。
+
+同样，也要使用 @Injectable 装饰器来表明一个组件或其它类（比如另一个服务、管道或 NgModule）拥有一个依赖。 依赖并不必然是服务，它也可能是函数或值等等。
+
+依赖注入（通常简称 DI）被引入到 Angular 框架中，并且到处使用它，来为新建的组件提供所需的服务或其它东西。如图\ref{fig:di}。
+
+\begin{itemize}
+  \item 注入器是主要的机制。你不用自己创建 Angular 注入器。Angular 会在启动过程中为你创建全应用级注入器。
+  \item 该注入器维护一个包含它已创建的依赖实例的容器，并尽可能复用它们。
+  \item 提供商是一个创建依赖的菜谱。对于服务来说，它通常就是这个服务类本身。你在应用中要用到的任何类都必须使用该应用的注入器注册一个提供商，以便注入器可以使用它来创建新实例。
+\end{itemize}
+
+
+\part{Angular 应用安全防范}
+
+
+\chapter{最佳实践}
+
+Web 应用程序的安全涉及到很多方面。针对常见的漏洞和攻击，比如跨站脚本攻击，Angular 提供了一些内置的保护措施。
+
+\section{最佳实践}
+
+\begin{itemize}
+  \item 及时把 Angular 包更新到最新版本。 我们会频繁的更新 Angular 库，这些更新可能会修复之前版本中发现的安全漏洞。查看 Angular 的更新记录，了解与安全有关的更新。
+  \item 不要修改你的 Angular 副本。 私有的、定制版的 Angular 往往跟不上最新版本，这可能导致你忽略重要的安全修复与增强。反之，应该在社区共享你对 Angular 所做的改进并创建 Pull Request。
+  \item 避免使用本文档中带``安全风险''标记的 Angular API。
+\end{itemize}
+
+\section{防范跨站脚本（XSS）攻击}
+
+跨站脚本（XSS）允许攻击者将恶意代码注入到页面中。这些代码可以偷取用户数据 （特别是它们的登录数据），还可以冒充用户执行操作。它是 Web 上最常见的攻击方式之一。
+
+为了防范 XSS 攻击，你必须阻止恶意代码进入 DOM。比如，如果某个攻击者能骗你把 \verb|<script>| 标签插入到 DOM，就可以在你的网站上运行任何代码。 除了 \verb|<script>|，攻击者还可以使用很多 DOM 元素和属性来执行代码，比如 \verb|<img onerror="...">|、\verb|<a href="javascript:...">|。 如果攻击者所控制的数据混进了 DOM，就会导致安全漏洞。
+
+\subsection{Angular 的``跨站脚本安全模型''}
+
+为了系统性的防范 XSS 问题，Angular 默认把所有值都当做不可信任的。 当值从模板中以属性（Property）、DOM 元素属性（Attribte)、CSS 类绑定或插值表达式等途径插入到 DOM 中的时候， Angular 将对这些值进行无害化处理（Sanitize），对不可信的值进行编码。
+
+Angular 的模板同样是可执行的：模板中的 HTML、Attribute 和绑定表达式（还没有绑定到值的时候）会被当做可信任的。这意味着应用必须防止把可能被攻击者控制的值直接编入模板的源码中。永远不要根据用户的输入和原始模板动态生成模板源码！使用离线模板编译器是防范这类``模板注入''漏洞的有效途径。
 
 \end{document}
 
