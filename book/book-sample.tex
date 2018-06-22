@@ -157,11 +157,11 @@
 \futurelet\TMPfootrule\def\footrule{{\color{violet}\TMPfootrule}}
 
 \renewcommand{\chaptermark}[1]{\markboth{第\zhnum{chapter}章\hspace{1em}#1}{}}
-\renewcommand{\sectionmark}[1]{\markright{\thesection\hspace{1em}#1}}
+%\renewcommand{\sectionmark}[1]{\markright{\thesection\hspace{1em}#1}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
 
 \fancyfoot[LE]{\thepage\quad\vrule\quad\leftmark}
 \fancyfoot[RO]{\rightmark\quad\vrule\quad\thepage}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Chinese names
@@ -244,6 +244,19 @@
 %%   }
 %% }
 %% \captionsetup[lstlisting]{format=codecaptionformat}
+
+
+\newcommand{\framedinfo}[1]{
+  \vspace{2ex}
+  \begin{tcolorbox}[width=\textwidth, boxsep=10pt, left=0pt, right=0pt, top=2pt, arc=3pt, boxrule=1pt, colback=white]
+    \begin{minipage}{.1\textwidth}
+      info
+    \end{minipage}
+    \begin{minipage}{.9\textwidth}
+      \zihao{5}#1
+    \end{minipage}
+  \end{tcolorbox}
+}
 
 
 
@@ -400,6 +413,10 @@ NgModule 系统与 JavaScript（ES2015）用来管理 JavaScript 对象的模块
 
 JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
 
+
+\framedinfo{JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。}
+
+JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
 
 \chapter{服务与依赖注入}
 
