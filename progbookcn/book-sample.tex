@@ -1,272 +1,22 @@
 %!TEX program = xelatex
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% progbook - LaTeX template for programming language
-%% and other technical contents
-%% WisdomFusion@gmail.com
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[a4paper,twoside]{ctexbook}
-\usepackage{fontspec}
-\usepackage{xunicode}
-\usepackage{geometry}
+\documentclass{progbookcn}
 \usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
 \usepackage{wrapfig}
-\usepackage{fancyhdr}
 \usepackage{enumerate}
 \usepackage{amsmath,mathrsfs,amsfonts}
-\usepackage[dvipsnames]{xcolor}
-\usepackage[clearempty]{titlesec}
-\usepackage[titles]{tocloft}
-\usepackage{caption}
 \usepackage{tabularx}
 \usepackage{booktabs}
 \usepackage{colortbl}
 \usepackage{multirow,makecell}
-\usepackage{ulem} % \uline
 \usepackage{multicol}
+\usepackage{ulem} % \uline
 \usepackage{listings}
-\usepackage{zhnumber}
 \usepackage{tikz}
-\usepackage{epigraph}
-\usepackage[skins]{tcolorbox}
+\usepackage{tcolorbox}
+\usepackage{fontawesome5}
 \usepackage{lipsum}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% hyperref settings
-%% 超链接设定
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\usepackage{hyperref}
-\hypersetup{
-  bookmarksnumbered,
-  colorlinks,
-  linkcolor={black},
-  citecolor={black},
-  urlcolor={black}
-}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% hyperref settings
-%% 超链接设定
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\geometry{
-  textwidth=138mm,
-  textheight=215mm,
-  %% left=27mm,
-  %% or
-  inner=23mm,
-  %% right=27mm,
-  %% or
-  outer=18mm,
-  top=25.4mm, bottom=25.4mm,
-  headheight=2.17cm,
-  headsep=4mm,
-  footskip=12mm
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% fonts settings
-%% 字体设定
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% \usepackage{ebgaramond}
-
-\setmainfont[Ligatures=TeX]{Minion Pro}
-\setsansfont{Myriad Pro}
-\setmonofont{Courier Std}
-
-\setCJKmainfont[BoldFont={方正小标宋_GBK}, ItalicFont={方正楷体_GBK}, BoldItalicFont={方正仿宋_GBK}]{方正书宋_GBK}
-\setCJKsansfont{方正黑体_GBK}
-\setCJKmonofont{方正中等线_GBK}
-
-\XeTeXlinebreaklocale "zh"
-\XeTeXlinebreakskip = 0pt plus 1pt
-
-\newfontfamily\fzss{方正书宋_GBK}
-\newfontfamily\fzxbs{方正小标宋_GBK}
-\newfontfamily\fzhei{方正黑体_GBK}
-\newfontfamily\fzkai{方正楷体_GBK}
-\newfontfamily\fzfs{方正仿宋_GBK}
-\newfontfamily\fzzdx{方正中等线_GBK}
-
-\newfontfamily\garamond{Adobe Garamond Pro}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% titlesec
-%% 标题设定
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% part
-\titleformat{\part} % command
-  [display] % shape
-  {\bfseries} % format
-  {
-    \zihao{4}\textsf{PART~\thepart} \hfill 第{\zhnum{part}}部分
-    %\rule[3ex]{\textwidth}{.5pt}
-    \vspace{1ex}
-    \hrule width \hsize height .5pt
-  } % label
-  {1pt} % sep
-  {\vspace{-7ex}\flushright\zihao{2}} % before-code
-  [] % after-code
-
-%% chapter
-\titleformat{\chapter} % command
-  [display] % shape
-  {\bfseries} % format
-  {
-    \flushright\zihao{4}第\zhnum{chapter}章
-  } % label
-  {1ex} % sep
-  {
-    \hrule width \hsize height .5pt
-    \vspace{-2ex}\flushright\zihao{2}
-  } % before-code
-  [
-  \vspace{5ex}
-  ] % after-code
-
-
-%% section
-\titleformat{\section}
-  [hang]
-  {\rmfamily}
-  {\centering\zihao{-3}\bfseries\thesection\enspace}
-  {1pt}
-  {\zihao{-3}\bfseries}
-
-%% subsection
-\titleformat{\subsection}
-  [hang]
-  {\rmfamily}
-  {\zihao{-4}\bfseries\thesubsection\enspace}
-  {1pt}
-  {\zihao{4}\bfseries\filright}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% head and foot
-%% 页眉页脚
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\pagestyle{fancy}
-\fancyhf{}
-\renewcommand\headrulewidth{0pt}
-\renewcommand\footrulewidth{.5pt}
-\futurelet\TMPfootrule\def\footrule{{\color{violet}\TMPfootrule}}
-
-\renewcommand{\chaptermark}[1]{\markboth{第\zhnum{chapter}章\hspace{1em}#1}{}}
-%\renewcommand{\sectionmark}[1]{\markright{\thesection\hspace{1em}#1}}
-\renewcommand{\sectionmark}[1]{\markright{#1}}
-
-\fancyfoot[LE]{\thepage\quad\vrule\quad\leftmark}
-\fancyfoot[RO]{\rightmark\quad\vrule\quad\thepage}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Chinese names
-%% 中文名称
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\renewcommand{\contentsname}{目\hspace{1em}录}
-\renewcommand{\figurename}{图}
-\renewcommand{\tablename}{表}
-\renewcommand{\partname}{部分}
-\renewcommand{\listfigurename}{插图目录}
-\renewcommand{\listtablename}{表格目录}
-\renewcommand{\bibname}{参考文献}
-\renewcommand{\appendixname}{附\hspace{1em}录}
-\renewcommand{\indexname}{索\hspace{1em}引}
-
-\renewcommand{\lstlistingname}{代码}
-\renewcommand{\lstlistlistingname}{\lstlistingname 列表}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% code listings
-%% 代码块设定
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\lstdefinelanguage{JavaScript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  morekeywords={class, export, boolean, throw, implements, import, this},
-  sensitive=false,
-  comment=[l]{//},
-  morecomment=[s]{/*}{*/},
-  morestring=[b]',
-  morestring=[b]"
-}
-
-
-\colorlet{lightergray}{black!5!white}
-
-\lstdefinestyle{mystyle}{
-  % Basic design
-  %backgroundcolor=\color{lightergray},
-  basicstyle=\ttfamily,
-  frame=tb,
-  %framesep=5pt,
-  framerule=.5pt,
-  rulecolor=\color{violet},
-  abovecaptionskip=0pt,
-  belowcaptionskip=5pt,
-  % Code design
-  commentstyle=\color{gray},
-  keywordstyle=\color{blue},
-  numberstyle=\small\color{gray},
-  stringstyle=\color{red},
-  morekeywords={as},
-  breakatwhitespace=false,
-  breaklines=true,
-  captionpos=t,
-  keepspaces=true,
-  % Line numbers
-  numbers=left,
-  numbersep=10pt,
-  %xleftmargin=.5em,
-  stepnumber=1,
-  firstnumber=1,
-  numberfirstline=true,
-  % Code
-  tabsize=4,
-  showspaces=false,
-  showstringspaces=false,
-  showtabs=false,
-  breaklines=true,
-}
-\lstset{style=mystyle}
-
-%% 代码列表标题
-%% \DeclareCaptionFormat{codecaptionformat}{%
-%%   \colorbox{black!20}{
-%%     \parbox{\textwidth}{#1#2\ttfamily#3}
-%%   }
-%% }
-%% \captionsetup[lstlisting]{format=codecaptionformat}
-
-
-\newcommand{\framedinfo}[1]{
-  \vspace{2ex}
-  \begin{tcolorbox}[width=\textwidth, boxsep=10pt, left=0pt, right=0pt, top=2pt, arc=3pt, boxrule=1pt, colback=white]
-    \begin{minipage}{.1\textwidth}
-      info
-    \end{minipage}
-    \begin{minipage}{.9\textwidth}
-      \zihao{5}#1
-    \end{minipage}
-  \end{tcolorbox}
-}
-
-
-
-%% 添加首行缩进，两个字符
-\usepackage{indentfirst}
-\setlength{\parindent}{2em}
-
-%% 行距
-\linespread{1.5}
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -406,6 +156,12 @@ import { BrowserModule } from '@angular/platform-browser';
 export class AppModule { }
 \end{lstlisting}
 
+NgModule 系统与 JavaScript（ES2015）用来管理 JavaScript 对象的模块系统不同，而且也没有直接关联。 这两种模块系统不同但互补。你可以使用它们来共同编写你的应用。
+
+JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
+
+
+\clearpage
 
 \section{NgModule 和 JavaScript 的模块}
 
@@ -413,8 +169,31 @@ NgModule 系统与 JavaScript（ES2015）用来管理 JavaScript 对象的模块
 
 JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
 
+\begin{titledbox}{JavaScript 模块}
+  JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
+  
+  JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
+\end{titledbox}
 
-\framedinfo{JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。}
+\begin{information}
+  JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
+  
+  JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
+\end{information}
+
+
+\begin{question}
+  JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
+\end{question}
+
+\begin{keypoint}
+  JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
+\end{keypoint}
+
+\begin{exclamation}
+  JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
+\end{exclamation}
+
 
 JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
 
