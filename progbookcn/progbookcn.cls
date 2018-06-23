@@ -250,7 +250,7 @@
   overlay={
     \node[anchor=north west,outer sep=10pt] at (frame.north west)
     {
-      \zihao{2}\textcolor{gray}{\faIcon{info-circle}}
+      \zihao{2}\faIcon{info-circle}
     };
   }
 }
@@ -267,7 +267,7 @@
   overlay={
     \node[anchor=north west,outer sep=10pt] at (frame.north west)
     {
-      \zihao{2}\textcolor{gray}{\faIcon{key}}
+      \zihao{2}\faIcon{key}
     };
   }
 }
@@ -284,7 +284,7 @@
   overlay={
     \node[anchor=north west,outer sep=10pt] at (frame.north west)
     {
-      \zihao{2}\textcolor{gray}{\faIcon{exclamation-triangle}}
+      \zihao{2}\faIcon{exclamation-triangle}
     };
   }
 }
@@ -301,7 +301,7 @@
   overlay={
     \node[anchor=north west,outer sep=10pt] at (frame.north west)
     {
-      \zihao{2}\textcolor{gray}{\faIcon{question-circle}}
+      \zihao{2}\faIcon{question-circle}
     };
   }
 }
