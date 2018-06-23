@@ -218,16 +218,21 @@ export class Logger {
 
 \section{依赖注入（dependency injection）}
 
-\begin{wrapfigure}{l}{5.5cm}
+
+组件是服务的消费者，也就是说，你可以把一个服务注入到组件中，让组件类得以访问该服务类。
+
+在 Angular 中，要把一个类定义为服务，就要用 @Injectable 装饰器来提供元数据，以便让 Angular 可以把它作为依赖注入到组件中。
+
+\begin{wrapfigure}{r}{5cm}
   \centering
   \includegraphics[scale=.7]{figs/dependency-injection.png}
   \caption{Dependency Injection}
   \label{fig:di}
 \end{wrapfigure}
 
-组件是服务的消费者，也就是说，你可以把一个服务注入到组件中，让组件类得以访问该服务类。
+同样，也要使用 @Injectable 装饰器来表明一个组件或其它类（比如另一个服务、管道或 NgModule）拥有一个依赖。 依赖并不必然是服务，它也可能是函数或值等等。
 
-在 Angular 中，要把一个类定义为服务，就要用 @Injectable 装饰器来提供元数据，以便让 Angular 可以把它作为依赖注入到组件中。
+同样，也要使用 @Injectable 装饰器来表明一个组件或其它类（比如另一个服务、管道或 NgModule）拥有一个依赖。 依赖并不必然是服务，它也可能是函数或值等等。
 
 同样，也要使用 @Injectable 装饰器来表明一个组件或其它类（比如另一个服务、管道或 NgModule）拥有一个依赖。 依赖并不必然是服务，它也可能是函数或值等等。
 
