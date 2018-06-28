@@ -42,7 +42,8 @@
   top=25.4mm, bottom=25.4mm,
   headheight=2.17cm,
   headsep=4mm,
-  footskip=12mm
+  footskip=12mm,
+  heightrounded,
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -219,7 +220,7 @@
 %% 信息框
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[many]{tcolorbox}
-\RequirePackage{fontawesome5}
+\RequirePackage{fontawesome}
 
 %% 带标题的文本框
 \newtcolorbox{titledbox}[1]{%
@@ -250,7 +251,7 @@
   overlay={
     \node[anchor=north west,outer sep=10pt] at (frame.north west)
     {
-      \zihao{2}\faIcon{info-circle}
+      \zihao{2}\faInfoCircle
     };
   }
 }
@@ -267,7 +268,7 @@
   overlay={
     \node[anchor=north west,outer sep=10pt] at (frame.north west)
     {
-      \zihao{2}\faIcon{key}
+      \zihao{2}\faKey
     };
   }
 }
@@ -284,7 +285,7 @@
   overlay={
     \node[anchor=north west,outer sep=10pt] at (frame.north west)
     {
-      \zihao{2}\faIcon{exclamation-triangle}
+      \zihao{2}\faExclamationTriangle
     };
   }
 }
@@ -301,7 +302,7 @@
   overlay={
     \node[anchor=north west,outer sep=10pt] at (frame.north west)
     {
-      \zihao{2}\faIcon{question-circle}
+      \zihao{2}\faQuestionCircle
     };
   }
 }
@@ -331,7 +332,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% 添加首行缩进，两个字符
-\usepackage{indentfirst}
+\RequirePackage{indentfirst}
 \setlength{\parindent}{2em}
 
 %% 行距

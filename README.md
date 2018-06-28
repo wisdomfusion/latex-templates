@@ -7,11 +7,20 @@ My ready-to-edit LaTeX templates, for books, articles, and notes, using XeLaTeX,
 
 Yet Another LaTeX Template for Programming or Technical Books
 
-- 编程等科技类书籍模版，力求简洁大方美观，适用于中文编著或译著，同样适用英文书籍的编写，对中文及英文字体的选择做了大量的调研
-- 中文使用方正系统免费字体，英文使用 Minion Pro, Myriad Pro 和 Courier Std 等字体
-- 主要定制 titlepage, partpage, 标题样式，页脚等
-- 同时定义 listings `language=JavaScript`
-- 使用 tcolorbox 定义 titledbox, information, keypoint, exclamation, question 等文本框环境
+- specified for programming or technical books, could be used to write English or Chinese books, for English books simply comment out CJK fonts families in  the cls file.
+- the template using Minion Pro, Myriad Pro and Courier Std as English font families, and using FZ series for Chinese, all of those fonts are included in this repo **for testing and study only**.
+- customize the styles of titlepage, partpage, chapter/section, hdr, etc.
+- define new listings language style `language=JavaScript`.
+- create new framed boxes environments using `tcolorbox`: titledbox, information, keypoint, exclamation, question.
+
+**Testing platforms**
+- OS platform:
+  Windows 10, macOS
+- TeX Systems:
+  TeXLive 2016/2017, MacTeX 2018
+- Softwares:
+  Emacs + AUCTeX, TeXstudio, WinEdt
+
 
 ## for notes
 

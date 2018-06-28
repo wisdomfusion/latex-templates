@@ -15,9 +15,10 @@
 \usepackage{listings}
 \usepackage{tikz}
 \usepackage{tcolorbox}
-\usepackage{fontawesome5}
-\usepackage{lipsum}
+\usepackage{fontawesome}
 
+\usepackage{imakeidx}
+\makeindex[intoc]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% beginning of the book
@@ -78,7 +79,6 @@ Web 应用程序的安全涉及到很多方面。针对常见的漏洞和攻击�
 
 \mainmatter
 
-
 \part{Angular 应用基础}
 
 
@@ -109,6 +109,8 @@ Angular 的基本构造块是 NgModule，它为组件提供了编译的上下文
 \subsection{模块}
 
 Angular 定义了 NgModule，它和 JavaScript（ES2015） 的模块不同而且有一定的互补性。 NgModule 为一个组件集声明了编译的上下文环境，它专注于某个应用领域、某个工作流或一组紧密相关的能力。 NgModule 可以将其组件和一组相关代码（如服务）关联起来，形成功能单元。
+
+\index{Test@\textsf{""Test}|(textbf}
 
 每个 Angular 应用都有一个根模块，通常命名为 AppModule。根模块提供了用来启动应用的引导机制。 一个应用通常会包含很多功能模块。
 
@@ -169,6 +171,7 @@ NgModule 系统与 JavaScript（ES2015）用来管理 JavaScript 对象的模块
 
 JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
 
+
 \begin{titledbox}{JavaScript 模块}
   JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
   
@@ -195,7 +198,7 @@ JavaScript 中，每个文件是一个模块，文件中定义的所有对象都
 \end{exclamation}
 
 
-JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。
+JavaScript 中，每个文件是一个模块，文件中定义的所有对象都从属于那个模块。 通过 export 关键字，模块可以把它的某些对象声明为公共的。 其它 JavaScript 模块可以使用import 语句来访问这些公共对象。\footnote{JavaScript 模块可以使用import 语句来访问这些公共对象。}
 
 \chapter{服务与依赖注入}
 
@@ -271,6 +274,37 @@ Web 应用程序的安全涉及到很多方面。针对常见的漏洞和攻击�
 为了系统性的防范 XSS 问题，Angular 默认把所有值都当做不可信任的。 当值从模板中以属性（Property）、DOM 元素属性（Attribte)、CSS 类绑定或插值表达式等途径插入到 DOM 中的时候， Angular 将对这些值进行无害化处理（Sanitize），对不可信的值进行编码。
 
 Angular 的模板同样是可执行的：模板中的 HTML、Attribute 和绑定表达式（还没有绑定到值的时候）会被当做可信任的。这意味着应用必须防止把可能被攻击者控制的值直接编入模板的源码中。永远不要根据用户的输入和原始模板动态生成模板源码！使用离线模板编译器是防范这类``模板注入''漏洞的有效途径。
+
+
+%% 附录
+\appendix
+\cleardoublepage
+
+
+%% appendix chapter style
+\titleformat{\chapter}[display]
+{\bfseries}
+{\flushright\zihao{4}附\hspace{1em}录\thechapter}
+{1ex}
+{
+  \hrule width \hsize height .5pt
+  \vspace{-2ex}\flushright\zihao{2}
+}[\vspace{5ex}]
+
+
+\chapter{Angular CLI}
+
+\begin{lstlisting}
+  ng new appname --style scss --skip-install
+\end{lstlisting}
+
+
+\cleardoublepage
+%% 索引
+\printindex
+
+%% 参考文献
+\bibliographystyle{plain}
 
 \end{document}
 
