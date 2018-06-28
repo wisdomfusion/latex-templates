@@ -1,17 +1,19 @@
-# latex-templates
+# My Ready-to-edit LaTeX Templates
 My ready-to-edit LaTeX templates, for books, articles, and notes, using XeLaTeX, specified both for Chinese and English documents.
 
-## for books
+## Templates for Books
 
 ### [progbookcn](./progbookcn)
 
 Yet Another LaTeX Template for Programming or Technical Books
 
-- specified for programming or technical books, could be used to write English or Chinese books, for English books simply comment out CJK fonts families in  the cls file.
-- the template using Minion Pro, Myriad Pro and Courier Std as English font families, and using FZ series for Chinese, all of those fonts are included in this repo **for testing and study only**.
-- customize the styles of titlepage, partpage, chapter/section, hdr, etc.
-- define new listings language style `language=JavaScript`.
-- create new framed boxes environments using `tcolorbox`: titledbox, information, keypoint, exclamation, question.
+**Features**
+
+- Specified for programming or technical books, could be used to write English or Chinese books, for English books simply comment out CJK fonts families in  the cls file.
+- The template using `Minion Pro`, `Myriad Pro` and `Courier Std` as English font families, and using FZ series for Chinese.
+- Customizing the styles of titlepage, partpage, chapter/section/subsection, hdr, etc.
+- Defining styles for languages not predefined in `listings`: JavaScript/ES6, TypeScript, golang.
+- Creating new framed boxes environments using `tcolorbox`: titledbox, information, keypoint, exclamation, question.
 
 **Testing platforms**
 - OS platform:
@@ -22,10 +24,18 @@ Yet Another LaTeX Template for Programming or Technical Books
   Emacs + AUCTeX, TeXstudio, WinEdt
 
 
-## for notes
+## Templates for Note-taking
 
 TODO
 
-## for articles
+## Templates for Articles or Tutorials
 
 TODO
+
+## Declarations
+
+**ALL FONTS INCLUDED IN THIS REPOSITORY ARE FOR TESTING AND STUDY ONLY.**
+
+## Contributions
+
+If you'd like to help to improve these templates, just create a [Pull Request](https://github.com/WisdomFusion/latex-templates/pulls). Feel free to report bugs and issues [here](https://github.com/WisdomFusion/latex-templates/issues/new).

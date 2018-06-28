@@ -155,22 +155,41 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{listings}
 
+\definecolor{codecolorkeywords}{rgb}{0,0,1}
+\definecolor{codecolorcomments}{rgb}{0,0.5,0}
+\definecolor{codecolorxmlcomments}{rgb}{0.5,0.5,0.5}
+\definecolor{codecolorstrings}{rgb}{0.64,0.08,0.08}
+\definecolor{codecolortypes}{rgb}{0.17,0.57,0.68}
+
 \lstdefinelanguage{JavaScript}{
-  keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
-  morekeywords={class, export, boolean, throw, implements, import, this},
-  sensitive=false,
+  keywords={do, if, in, for, let, new, try, var, case, else, enum, eval, null, this, true, void, with, await, break, catch, class, const, false, super, throw, while, yield, delete, export, import, public, return, static, switch, typeof, default, extends, finally, package, private, continue, debugger, function, arguments, interface, protected, implements, instanceof},
+  sensitive=true,
   comment=[l]{//},
   morecomment=[s]{/*}{*/},
   morestring=[b]',
   morestring=[b]"
 }
 
+\lstdefinelanguage{TypeScript}{
+  keywords={abstract, break, case, catch, class, const, continue, debugger, default, delete, do, else, enum, export, extends, false, finally, for, function, if, import, in, instanceof, new, null, return, super, switch, this, throw, true, try, typeof, var, void, while, with, as, implements, interface, let, package, private, protected, public, static, yield, any, boolean, constructor, declare, get, module, require, number, set, string, symbol, type, from, of},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
 
-\colorlet{lightergray}{black!5!white}
+\lstdefinelanguage{golang}{
+  keywords={break, default, func, interface, select, case, defer, go, map, struct, chan, else, goto, package, switch, const, fallthrough, if, range, type, continue, for, import, return, var},
+  sensitive=true,
+  comment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]"
+}
 
 \lstdefinestyle{mystyle}{
   % Basic design
-  %backgroundcolor=\color{lightergray},
   basicstyle=\ttfamily,
   frame=tb,
   %framesep=5pt,
@@ -179,10 +198,10 @@
   abovecaptionskip=0pt,
   belowcaptionskip=5pt,
   % Code design
-  commentstyle=\color{gray},
-  keywordstyle=\color{blue},
+  keywordstyle=\color{codecolorkeywords},
+  commentstyle=\color{codecolorcomments},
+  stringstyle=\color{codecolorstrings},
   numberstyle=\small\color{gray},
-  stringstyle=\color{red},
   morekeywords={as},
   breakatwhitespace=false,
   breaklines=true,
@@ -206,13 +225,14 @@
 
 
 %% 代码列表标题
-%% \RequirePackage{caption}
-%% \DeclareCaptionFormat{codecaptionformat}{%
-%%   \colorbox{black!20}{
-%%     \parbox{\textwidth}{#1#2\ttfamily#3}
-%%   }
-%% }
-%% \captionsetup[lstlisting]{format=codecaptionformat}
+\RequirePackage{caption}
+\DeclareCaptionFormat{codecaptionformat}{%
+  %%\colorbox{black!20}{
+  %%  \parbox{\textwidth}{#1#2\ttfamily#3}
+  %%}
+  \faCode #1#2\ttfamily#3
+}
+\captionsetup[lstlisting]{format=codecaptionformat}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

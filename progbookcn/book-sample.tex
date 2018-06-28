@@ -150,9 +150,22 @@ Angular 定义了 NgModule，它和 JavaScript（ES2015） 的模块不同而且
 
 在视图显示出来之前，Angular 会先根据你的应用数据和逻辑来运行模板中的指令并解析绑定表达式，以修改 HTML 元素和 DOM。 Angular 支持\textbf{双向数据绑定}，这意味着 DOM 中发生的变化（比如用户的选择）同样可以反映回你的程序数据中。
 
-\begin{lstlisting}[language=JavaScript,caption={src/app/app.module.ts}]
-import { NgModule }      from '@angular/core';
+\begin{lstlisting}[%
+  language=JavaScript,
+  caption={src/app/app.module.ts}
+]
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
+// 配置 angular i18n
+import { registerLocaleData } from '@angular/common';
+import zh from '@angular/common/locales/zh';
+registerLocaleData(zh);
+
 @NgModule({
   imports:      [ BrowserModule ],
   providers:    [ Logger ],
@@ -214,7 +227,10 @@ JavaScript 中，每个文件是一个模块，文件中定义的所有对象都
 
 服务是一个广义的概念，它包括应用所需的任何值、函数或特性。狭义的服务是一个明确定义了用途的类。它应该做一些具体的事，并做好。
 
-\begin{lstlisting}[language=JavaScript,caption={src/app/app.module.ts}]
+\begin{lstlisting}[%
+  language=JavaScript,
+  caption={src/app/app.module.ts}
+]
 export class Logger {
   log(msg: any)   { console.log(msg); }
   error(msg: any) { console.error(msg); }
@@ -275,6 +291,198 @@ Web 应用程序的安全涉及到很多方面。针对常见的漏洞和攻击�
 为了防范 XSS 攻击，你必须阻止恶意代码进入 DOM。比如，如果某个攻击者能骗你把 \verb|<script>| 标签插入到 DOM，就可以在你的网站上运行任何代码。 除了 \verb|<script>|，攻击者还可以使用很多 DOM 元素和属性来执行代码，比如 \verb|<img onerror="...">|、\verb|<a href="javascript:...">|。 如果攻击者所控制的数据混进了 DOM，就会导致安全漏洞。
 
 \subsection{Angular 的``跨站脚本安全模型''}
+
+为了系统性的防范 XSS 问题，Angular 默认把所有值都当做不可信任的。 当值从模板中以属性（Property）、DOM 元素属性（Attribte)、CSS 类绑定或插值表达式等途径插入到 DOM 中的时候， Angular 将对这些值进行无害化处理（Sanitize），对不可信的值进行编码。
+
+Angular 的模板同样是可执行的：模板中的 HTML、Attribute 和绑定表达式（还没有绑定到值的时候）会被当做可信任的。这意味着应用必须防止把可能被攻击者控制的值直接编入模板的源码中。永远不要根据用户的输入和原始模板动态生成模板源码！使用离线模板编译器是防范这类``模板注入''漏洞的有效途径。
+
+\subsection{listings examples}
+
+\noindent{}C\# code sample
+
+\begin{lstlisting}[%
+language={[Sharp]C},
+caption={C\# code sample},
+label=lst:csharphelloworld
+]
+// A Hello World! program in C#.
+using System;
+namespace HelloWorld
+{
+  class Hello 
+  {
+    static void Main() 
+    {
+      Console.WriteLine("Hello World!");
+      
+      // Keep the console window open in debug mode.
+      Console.WriteLine("Press any key to exit.");
+      Console.ReadKey();
+    }
+  }
+}
+\end{lstlisting}
+
+\noindent{}PHP code sample
+
+\begin{lstlisting}[%
+language=PHP,
+caption={PHP code sample},
+label=lst:phpsample
+]
+<?php
+namespace App;
+use Illuminate\Database\Eloquent\Model;
+
+class Comment extends Model
+{
+  /**
+  * Get all of the owning commentable models.
+  */
+  public function commentable()
+  {
+    return $this->morphTo();
+  }
+}
+  
+class Post extends Model
+{
+  /**
+  * Get all of the post's comments.
+  */
+  public function comments()
+  {
+    return $this->morphMany('App\Comment', 'commentable');
+  }
+}
+  
+class Video extends Model
+{
+  /**
+  * Get all of the video's comments.
+  */
+  public function comments()
+  {
+    return $this->morphMany('App\Comment', 'commentable');
+  }
+}
+\end{lstlisting}
+
+\noindent{}JavaScript/ES6 code sample
+
+\begin{lstlisting}[%
+language=JavaScript,
+caption={JavaScript code sample},
+label=lst:jsexample
+]
+// module "my-module.js"
+function cube(x) {
+  return x * x * x;
+}
+const foo = Math.PI + Math.SQRT2;
+var graph = {
+  options:{
+    color:'white',
+    thickness:'2px'
+  },
+  draw: function(){
+    console.log('From graph draw function');
+  }
+}
+export { cube, foo, graph };
+\end{lstlisting}
+
+\noindent{}TypeScript code sample
+
+\begin{lstlisting}[%
+language=TypeScript,
+caption={TypeScript code sample},
+label=lst:tsexample
+]
+abstract class Department {
+  
+  constructor(public name: string) {
+  }
+  
+  printName(): void {
+    console.log("Department name: " + this.name);
+  }
+  
+  abstract printMeeting(): void; // must be implemented in derived classes
+}
+
+class AccountingDepartment extends Department {
+  
+  constructor() {
+    super("Accounting and Auditing"); // constructors in derived classes must call super()
+  }
+  
+  printMeeting(): void {
+    console.log("The Accounting Department meets each Monday at 10am.");
+  }
+  
+  generateReports(): void {
+    console.log("Generating accounting reports...");
+  }
+}
+
+let department: Department; // ok to create a reference to an abstract type
+department = new Department(); // error: cannot create an instance of an abstract class
+department = new AccountingDepartment(); // ok to create and assign a non-abstract subclass
+department.printName();
+department.printMeeting();
+department.generateReports(); // error: method doesn't exist on declared abstract type
+\end{lstlisting}
+
+\noindent{}golang code sample
+
+\begin{lstlisting}[%
+language=golang,
+caption={golang code sample},
+label=lst:golangexample
+]
+// Go supports [_anonymous functions_](http://en.wikipedia.org/wiki/Anonymous_function),
+// which can form <a href="http://en.wikipedia.org/wiki/Closure_(computer_science)"><em>closures</em></a>.
+// Anonymous functions are useful when you want to define
+// a function inline without having to name it.
+
+package main
+
+import "fmt"
+
+// This function `intSeq` returns another function, which
+// we define anonymously in the body of `intSeq`. The
+// returned function _closes over_ the variable `i` to
+// form a closure.
+func intSeq() func() int {
+  i := 0
+  return func() int {
+    i++
+    return i
+  }
+}
+
+func main() {
+  
+  // We call `intSeq`, assigning the result (a function)
+  // to `nextInt`. This function value captures its
+  // own `i` value, which will be updated each time
+  // we call `nextInt`.
+  nextInt := intSeq()
+  
+  // See the effect of the closure by calling `nextInt`
+  // a few times.
+  fmt.Println(nextInt())
+  fmt.Println(nextInt())
+  fmt.Println(nextInt())
+  
+  // To confirm that the state is unique to that
+  // particular function, create and test a new one.
+  newInts := intSeq()
+  fmt.Println(newInts())
+}
+\end{lstlisting}
+
 
 为了系统性的防范 XSS 问题，Angular 默认把所有值都当做不可信任的。 当值从模板中以属性（Property）、DOM 元素属性（Attribte)、CSS 类绑定或插值表达式等途径插入到 DOM 中的时候， Angular 将对这些值进行无害化处理（Sanitize），对不可信的值进行编码。
 
