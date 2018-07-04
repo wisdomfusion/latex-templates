@@ -11,6 +11,7 @@
 \RequirePackage{xunicode}
 \RequirePackage[dvipsnames]{xcolor}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% hyperref settings
 %% 超链接设定
@@ -52,6 +53,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{fontspec}
 %% \usepackage{ebgaramond}
+
+%% 开明式：句末点号用占一个汉字宽度，标号和句内点号占半个汉字宽度
+\punctstyle{kaiming}
 
 \setmainfont[Ligatures=TeX]{Minion Pro}
 \setsansfont{Myriad Pro}
@@ -153,7 +157,7 @@
 %% code listings
 %% 代码块设定
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage{listings}
+\RequirePackage{listings,verbatim}
 
 \definecolor{codecolorkeywords}{rgb}{0,0,1}
 \definecolor{codecolorcomments}{rgb}{0,0.5,0}
