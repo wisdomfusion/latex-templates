@@ -348,8 +348,8 @@
 \renewcommand{\listfigurename}{插图目录}
 \renewcommand{\listtablename}{表格目录}
 \renewcommand{\bibname}{参考文献}
-\renewcommand{\appendixname}{附\hspace{1em}录}
-\renewcommand{\indexname}{索\hspace{1em}引}
+\renewcommand{\appendixname}{附录}
+\renewcommand{\indexname}{索引}
 % listings
 \renewcommand{\lstlistingname}{代码}
 \renewcommand{\lstlistlistingname}{\lstlistingname 列表}
