@@ -239,7 +239,7 @@
   %%\colorbox{black!20}{
   %%  \parbox{\textwidth}{#1#2\ttfamily#3}
   %%}
-  \parbox{\textwidth}{\faCode #1#2\hspace{.5em}\ttfamily#3}
+  \parbox{\textwidth}{\faCode #1#2\hspace{.5em}#3}
 }
 \captionsetup[lstlisting]{format=codecaptionformat}
 
