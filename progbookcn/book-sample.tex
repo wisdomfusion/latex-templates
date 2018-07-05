@@ -16,6 +16,7 @@
 \usepackage{tikz}
 \usepackage{tcolorbox}
 \usepackage{fontawesome}
+\usepackage{bookmark}
 
 \usepackage{imakeidx}
 \makeindex[%
@@ -489,6 +490,9 @@ func main() {
 Angular 的模板同样是可执行的：模板中的 HTML、Attribute 和绑定表达式（还没有绑定到值的时候）会被当做可信任的。这意味着应用必须防止把可能被攻击者控制的值直接编入模板的源码中。永远不要根据用户的输入和原始模板动态生成模板源码！使用离线模板编译器是防范这类``模板注入''漏洞的有效途径。
 
 
+\bookmarksetup{startatroot}
+
+
 %% 附录
 \appendix
 \cleardoublepage
@@ -507,9 +511,12 @@ Angular 的模板同样是可执行的：模板中的 HTML、Attribute 和绑定
 
 \chapter{Angular CLI}
 
-\begin{lstlisting}
+\begin{lstlisting}[language=bash,style=shellstyle]
   ng new appname --style scss --skip-install
 \end{lstlisting}
+
+
+\backmatter
 
 
 \cleardoublepage

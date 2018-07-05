@@ -228,6 +228,11 @@
 \lstset{style=mystyle}
 
 
+\lstdefinestyle{shellstyle}{
+  numbers=none
+}
+
+
 %% 代码列表标题
 \RequirePackage{caption}
 \DeclareCaptionFormat{codecaptionformat}{%
