@@ -9,7 +9,7 @@
 \LoadClass[a4paper,twoside]{ctexbook}
 
 \RequirePackage{xunicode}
-\RequirePackage[dvipsnames]{xcolor}
+\RequirePackage{color,xcolor}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,6 +24,14 @@
   citecolor={black},
   urlcolor={black}
 }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% graphicx settings
+%% 图片设定
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{graphicx}
+\graphicspath{{./figs/}{./figure/}{./figures/}{./image/}{./images/}{./graphics/}{./graphic/}{./pictures/}{./picture/}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -84,12 +92,15 @@
 \RequirePackage[clearempty]{titlesec}
 \RequirePackage{zhnumber}
 
+%% Define a HUGE 
+\newcommand\HUGE{\@setfontsize\Huge{48}{60}}
+
 %% part
 \titleformat{\part} % command
 [display] % shape
 {\bfseries} % format
 {
-  \zihao{4}\textsf{PART~\thepart} \hfill 第{\zhnum{part}}部分
+  \parbox[t]{7em}{\textcolor{gray}{\HUGE \textit{PART~\thepart}}} \hfill \zihao{4}第{\zhnum{part}}部分
   %\rule[3ex]{\textwidth}{.5pt}
   \vspace{1ex}
   \hrule width \hsize height .5pt
