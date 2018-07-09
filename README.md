@@ -9,8 +9,8 @@ Yet Another LaTeX Template for Programming or Technical Books
 
 **Features**
 
-- Specified for programming or technical books, could be used to write English or Chinese books, for English books simply comment out CJK fonts families in  the cls file.
-- The template using `Minion Pro`, `Myriad Pro` and `Courier Std` as English font families, and using FZ series for Chinese.
+- Specified for programming or technical books, could be used to write English or Chinese books.
+- Using `Minion Pro`, `Myriad Pro` and `Courier Std` as English font families, and using FZ series for Chinese.
 - Customizing the styles of titlepage, partpage, chapter/section/subsection, hdr, etc.
 - Defining styles for languages not predefined in `listings`: JavaScript/ES6, TypeScript, golang.
 - Creating new framed boxes environments using `tcolorbox`: titledbox, information, keypoint, exclamation, question.
@@ -30,7 +30,16 @@ TODO
 
 ## Templates for Articles or Tutorials
 
-TODO
+### [progartcn](./progartcn)
+
+Yet Another LaTeX Template for Programming or Technical Articles or Tutorials
+
+**Features**
+
+- Specified for programming or technical articles or tutorials.
+- Using **Minion Pro**, **Myriad Pro** and **[Ubuntu Mono](https://design.ubuntu.com/font/)** as English font families, and using **[Source Han Serif](https://github.com/adobe-fonts/source-han-serif)**,  **[Source Han Sans](https://github.com/adobe-fonts/source-han-sans)**, **Adobe Kaiti Std** and **Adobe Fangsong Std** for Chinese.
+- Customizing the styles of abstract, section/subsection, hdr, etc.
+- Defining styles for languages not predefined in `listings`: JavaScript/ES6, TypeScript, golang.
 
 ## Declarations
 

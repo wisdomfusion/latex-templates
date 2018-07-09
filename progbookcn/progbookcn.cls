@@ -31,6 +31,8 @@
 %% 图片设定
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{graphicx}
+\RequirePackage{graphbox}
+\RequirePackage{wrapfig}
 \graphicspath{{./figs/}{./figure/}{./figures/}{./image/}{./images/}{./graphics/}{./graphic/}{./pictures/}{./picture/}}
 
 
