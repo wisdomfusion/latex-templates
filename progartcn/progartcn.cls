@@ -5,7 +5,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{progartcn}[July, 2018 Yet Another LaTeX Template for Programming or Technical Articles or Tutorials]
+\ProvidesClass{progartcn}[July, 2018 Yet Another LaTeX Template for Technical Articles or Tutorials]
 \LoadClass[a4paper]{ctexart}
 
 \RequirePackage{xunicode}
@@ -94,7 +94,7 @@
 
 
 %% \renewcommand\abstractname{Summary}
-\renewenvironment{abstract}{\noindent\rule{\textwidth}{.5pt}\\[2ex] \centering\begin{minipage}{.95\textwidth}{\zihao{4}\bfseries\abstractname}\\[1ex]}
+\renewenvironment{abstract}{\noindent\rule{\textwidth}{.5pt}\\[2ex] \centering\begin{minipage}{.95\textwidth}{\zihao{-4}\bfseries\abstractname}\\}
 {\par\noindent\end{minipage}\\[2ex] \rule{\textwidth}{.5pt}}
 
 %% section
@@ -120,6 +120,26 @@
 {\zihao{-4}\bfseries\thesubsubsection\enspace}
 {1pt}
 {\zihao{-4}\bfseries\filright}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% head and foot
+%% 页眉页脚
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{fancyhdr}
+\RequirePackage{zhnumber}
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand\headrulewidth{.5pt}
+\renewcommand\footrulewidth{0pt}
+%\futurelet\TMPheadrule\def\headrule{{\color{violet}\TMPheadrule}}
+
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+
+\fancyhead[L]{\rightmark}
+\fancyhead[R]{\thepage}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% code listings
