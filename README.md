@@ -37,9 +37,16 @@ Yet Another LaTeX Template for Programming or Technical Articles or Tutorials
 **Features**
 
 - Specified for programming or technical articles or tutorials.
+
 - Using **Minion Pro**, **Myriad Pro** and **[Ubuntu Mono](https://design.ubuntu.com/font/)** as English font families, and using **[Source Han Serif](https://github.com/adobe-fonts/source-han-serif)**,  **[Source Han Sans](https://github.com/adobe-fonts/source-han-sans)**, **Adobe Kaiti Std** and **Adobe Fangsong Std** for Chinese.
+
 - Customizing the styles of abstract, section/subsection, hdr, etc.
+
 - Defining styles for languages not predefined in `listings`: JavaScript/ES6, TypeScript, golang.
+
+## Templates for Presentations (Beamer)
+
+### [GoogleBlue](https://github.com/WisdomFusion/latex-beamer-teamplates)
 
 ## Declarations
 
