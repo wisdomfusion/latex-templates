@@ -92,7 +92,7 @@
 
 
 %% \renewcommand\abstractname{Summary}
-\renewenvironment{abstract}{\noindent\rule{\textwidth}{.5pt}\\[2ex] \centering\begin{minipage}{.95\textwidth}{\zihao{-4}\bfseries\abstractname}\\}
+\renewenvironment{abstract}{\noindent\rule{\textwidth}{.5pt}\\[2ex] \centering\begin{minipage}{.97\textwidth}{\zihao{-4}\bfseries\abstractname}\\}
 {\par\noindent\end{minipage}\\[2ex] \rule{\textwidth}{.5pt}}
 
 %% section
@@ -170,10 +170,10 @@
   boxrule=.5pt,
   left=0pt, right=0pt, top=-10pt, bottom=0pt,
   boxsep=10pt,
-  colframe=YellowOrange,
-  colback=YellowOrange!5!White,
+  colframe=Orange,
+  colback=Orange!5!White,
   coltext=Orange,
-  colbacktitle=YellowOrange!5!White,
+  colbacktitle=Orange!5!White,
   coltitle=Orange,
   titlerule=0pt,
   title={\faExclamationCircle\hspace{.5em}重要},
@@ -188,11 +188,11 @@
   boxrule=.5pt,
   left=0pt, right=0pt, top=0pt, bottom=0pt,
   boxsep=10pt,
-  colframe=black,
-  colback=black,
+  colframe=black!75!white,
+  colback=black!75!white,
   coltext=white,
   title={},
-  fontupper=\small
+  fontupper=\linespread{1.2}
 }
 
 %% shelloutputbox 命令输出
@@ -202,11 +202,11 @@
   boxrule=.5pt,
   left=0pt, right=0pt, top=0pt, bottom=0pt,
   boxsep=10pt,
-  colframe=black!50!white,
-  colback=black!5!white,
+  colframe=black!75!white,
+  colback=black!10!white,
   coltext=black,
   title={},
-  fontupper=\small
+  fontupper=\linespread{1.2}
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -269,7 +269,7 @@
 
 \lstdefinestyle{mystyle}{
   % Basic design
-  basicstyle=\ttfamily\small,
+  basicstyle=\linespread{1.2}\ttfamily,
   frame=tb,
   %framesep=5pt,
   framerule=.5pt,
@@ -305,8 +305,9 @@
 %% 命令行
 \lstdefinestyle{bashstyle}{
   backgroundcolor=\color{Cyan!10!white},
+  basicstyle=\linespread{1.2}\ttfamily,
   numbers=none,
-  numbersep=10pt,
+  xleftmargin=.5em,
   frame=l,
   framerule=2pt,
   rulecolor=\color{Cyan},
@@ -315,8 +316,9 @@
 %% 命令行输出
 \lstdefinestyle{bashoutstyle}{
   backgroundcolor=\color{YellowOrange!10!white},
+  basicstyle=\linespread{1.2}\ttfamily,
   numbers=none,
-  numbersep=10pt,
+  xleftmargin=.5em,
   frame=l,
   framerule=2pt,
   rulecolor=\color{YellowOrange},
