@@ -70,11 +70,9 @@
 
 \setmainfont{Minion Pro}
 \setsansfont{Myriad Pro}
-\setmonofont{Ubuntu Mono}
+\setmonofont{Courier Std}
 
-\setCJKmainfont[BoldFont={Source Han Sans SC Medium}, ItalicFont={Adobe Kaiti Std}, BoldItalicFont={Adobe Fangsong Std}]{Source Han Serif SC}
-\setCJKsansfont{Source Han Sans SC}
-\setCJKmonofont{Source Han Sans SC}
+\setCJKmainfont[BoldFont={Source Han Sans SC Bold}, ItalicFont={Adobe Kaiti Std}, BoldItalicFont={Adobe Fangsong Std}]{Source Han Serif SC}
 
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip = 0pt plus 1pt
@@ -121,6 +119,94 @@
 {1pt}
 {\zihao{-4}\bfseries\filright}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% boxes
+%% 信息框
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[many]{tcolorbox}
+\RequirePackage{fontawesome}
+
+%% 带标题的文本框
+\newtcolorbox{titledbox}[1]{%
+  enhanced,
+  arc=2pt,
+  fonttitle=\sffamily\bfseries\centering,
+  boxrule=.5pt,
+  left=0pt, right=0pt, top=-10pt, bottom=0pt,
+  boxsep=10pt,
+  colframe=Black,
+  colback=White,
+  coltext=Black,
+  colbacktitle=White,
+  coltitle=Black,
+  titlerule=0pt,
+  title={#1},
+}
+
+%% Note 注意
+\newtcolorbox{notebox}{%
+  enhanced,
+  arc=2pt,
+  boxrule=.5pt,
+  left=0pt, right=0pt, top=-10pt, bottom=0pt,
+  boxsep=10pt,
+  colframe=Cyan,
+  colback=Cyan!5!White,
+  coltext=NavyBlue,
+  colbacktitle=Cyan!5!White,
+  coltitle=NavyBlue,
+  titlerule=0pt,
+  title={\faStickyNoteO\hspace{.5em}注意},
+  fonttitle=\bfseries,
+  halign=left
+}
+
+%% Important 重要
+\newtcolorbox{importantbox}{%
+  enhanced,
+  arc=2pt,
+  boxrule=.5pt,
+  left=0pt, right=0pt, top=-10pt, bottom=0pt,
+  boxsep=10pt,
+  colframe=YellowOrange,
+  colback=YellowOrange!5!White,
+  coltext=Orange,
+  colbacktitle=YellowOrange!5!White,
+  coltitle=Orange,
+  titlerule=0pt,
+  title={\faExclamationCircle\hspace{.5em}重要},
+  fonttitle=\bfseries,
+  halign=left
+}
+
+%% shellbox 命令行
+\newtcolorbox{shellbox}{%
+  enhanced,
+  arc=2pt,
+  boxrule=.5pt,
+  left=0pt, right=0pt, top=0pt, bottom=0pt,
+  boxsep=10pt,
+  colframe=black,
+  colback=black,
+  coltext=white,
+  title={},
+  fontupper=\small
+}
+
+%% shelloutputbox 命令输出
+\newtcolorbox{shelloutputbox}{%
+  enhanced,
+  arc=2pt,
+  boxrule=.5pt,
+  left=0pt, right=0pt, top=0pt, bottom=0pt,
+  boxsep=10pt,
+  colframe=black!50!white,
+  colback=black!5!white,
+  coltext=black,
+  title={},
+  fontupper=\small
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% head and foot
@@ -182,19 +268,19 @@
 
 \lstdefinestyle{mystyle}{
   % Basic design
-  basicstyle=\ttfamily,
+  basicstyle=\ttfamily\small,
   frame=tb,
   %framesep=5pt,
   framerule=.5pt,
   rulecolor=\color{violet},
   abovecaptionskip=0pt,
   belowcaptionskip=5pt,
+  aboveskip=5pt,
   % Code design
   keywordstyle=\color{codecolorkeywords},
   commentstyle=\color{codecolorcomments},
   stringstyle=\color{codecolorstrings},
   numberstyle=\small\color{gray},
-  morekeywords={as},
   breakatwhitespace=false,
   breaklines=true,
   captionpos=t,
@@ -215,11 +301,25 @@
 }
 \lstset{style=mystyle}
 
-
-\lstdefinestyle{shellstyle}{
-  numbers=none
+%% 命令行
+\lstdefinestyle{bashstyle}{
+  backgroundcolor=\color{Cyan!10!white},
+  numbers=none,
+  numbersep=10pt,
+  frame=l,
+  framerule=2pt,
+  rulecolor=\color{Cyan},
 }
 
+%% 命令行输出
+\lstdefinestyle{bashoutstyle}{
+  backgroundcolor=\color{YellowOrange!10!white},
+  numbers=none,
+  numbersep=10pt,
+  frame=l,
+  framerule=2pt,
+  rulecolor=\color{YellowOrange},
+}
 
 %% 代码列表标题
 \RequirePackage{caption}
@@ -230,6 +330,16 @@
   \parbox{\textwidth}{\faCode #1#2\hspace{.5em}#3}
 }
 \captionsetup[lstlisting]{format=codecaptionformat}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Chinese names
+%% 中文名称
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\figurename}{图}
+\renewcommand{\tablename}{表}
+\renewcommand{\lstlistingname}{代码}
+\renewcommand{\abstractname}{摘要}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

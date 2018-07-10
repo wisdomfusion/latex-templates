@@ -85,7 +85,6 @@
 \newfontfamily\fzfs{方正仿宋_GBK}
 \newfontfamily\fzzdx{方正中等线_GBK}
 
-\newfontfamily\garamond{Adobe Garamond Pro}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% titlesec
@@ -219,7 +218,6 @@
   commentstyle=\color{codecolorcomments},
   stringstyle=\color{codecolorstrings},
   numberstyle=\small\color{gray},
-  morekeywords={as},
   breakatwhitespace=false,
   breaklines=true,
   captionpos=t,
