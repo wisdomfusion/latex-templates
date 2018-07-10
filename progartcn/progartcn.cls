@@ -142,6 +142,7 @@
   coltitle=Black,
   titlerule=0pt,
   title={#1},
+  halign=left
 }
 
 %% Note 注意
