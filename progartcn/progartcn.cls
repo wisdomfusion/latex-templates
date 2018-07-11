@@ -193,34 +193,55 @@
   fontupper=\fzkai
 }
 
+%% verbatim 环境无法直接在新环境中使用
+%% 换用 \VerbatimEnvironment \begin{Verbatim}
+\RequirePackage{fancyvrb}
+
 %% 命令行
-\newtcolorbox{shellbox}{%
-  enhanced,
-  arc=2pt,
-  boxrule=.5pt,
-  left=5pt, right=5pt, top=0pt, bottom=0pt,
-  boxsep=5pt,
-  colframe=black,
-  colback=white,
-  coltext=black,
-  title={},
-  fontupper=\linespread{1.2}
+\newenvironment{shellbox}
+{%
+  \VerbatimEnvironment
+  \begin{tcolorbox}[
+    enhanced,
+    arc=2pt,
+    boxrule=.5pt,
+    left=5pt, right=5pt, top=0pt, bottom=0pt,
+    boxsep=5pt,
+    colframe=black,
+    colback=white,
+    coltext=black,
+    title={},
+    fontupper=\linespread{1.2}
+  ]%
+    \begin{Verbatim}
+}
+{%
+    \end{Verbatim}
+  \end{tcolorbox}
 }
 
 %% 命令行
-\newtcolorbox{invertedshellbox}{%
-  enhanced,
-  arc=2pt,
-  boxrule=.5pt,
-  left=5pt, right=5pt, top=0pt, bottom=0pt,
-  boxsep=5pt,
-  colframe=black!70!white,
-  colback=black!70!white,
-  coltext=white,
-  title={},
-  fontupper=\linespread{1.2}
+\newenvironment{invertedshellbox}
+{%
+  \VerbatimEnvironment
+  \begin{tcolorbox}[
+    enhanced,
+    arc=2pt,
+    boxrule=.5pt,
+    left=5pt, right=5pt, top=0pt, bottom=0pt,
+    boxsep=5pt,
+    colframe=black!70!white,
+    colback=black!70!white,
+    coltext=white,
+    title={},
+    fontupper=\linespread{1.2}
+  ]%
+    \begin{Verbatim}
 }
-
+{%
+    \end{Verbatim}
+  \end{tcolorbox}
+}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
