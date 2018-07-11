@@ -66,7 +66,7 @@
 %% \usepackage{ebgaramond}
 
 %% 开明式：句末点号用占一个汉字宽度，标号和句内点号占半个汉字宽度
-%\punctstyle{kaiming}
+\punctstyle{kaiming}
 
 \setmainfont{Minion Pro}
 \setsansfont{Myriad Pro}
@@ -335,10 +335,16 @@
   framextopmargin=-5pt,
   xleftmargin=10pt,
   rulecolor=\color{NavyBlue},
+  % Code
+  tabsize=4,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  breaklines=true,
 }
 
 %% 命令行输出
-\lstdefinestyle{bashoutstyle}{
+\lstdefinestyle{bashoutputstyle}{
   backgroundcolor=\color{black!10!white},
   basicstyle=\linespread{1.2}\ttfamily,
   keepspaces=true,
@@ -351,6 +357,12 @@
   framextopmargin=-5pt,
   xleftmargin=10pt,
   rulecolor=\color{black!70!white},
+  % Code
+  tabsize=4,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  breaklines=true,
 }
 
 %% 代码列表标题
