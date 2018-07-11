@@ -46,9 +46,6 @@
 
 Laravel 5.6 在 Laravel 5.5 的基础上继续进行优化，包括\textbf{日志系统}、\textit{单机任务调度}、\textbf{\textit{模型序列化优化}}、动态频率限制、广播频道类、API 资源控制器生成、Eloquent 日期格式化优化、Blade 组件别名、Argon2 密码哈希支持、引入 Collision 扩展包等等等等。此外，所有的前端脚手架代码都已升级到 Bootstrap 4，Laravel 底层使用的 Symfony 组件都已升级到 Symfony $\sim$4.0 版本。
 
-Laravel 5.6 版本的发布恰逢 Spark 6.0 的发布，所以这也是自 Laravel Spark 发布以来第一次重大版本升级。Spark 6.0 为 Stripe 和 Braintree 引入了按座定价功能，以及本地化、Bootstrap 4、增强 UI 和 Stripe Elements 支持。
-
-
 \begin{lstlisting}[language=JavaScript,caption={test/test.json}]
 'channels' => [
   'stack' => [
@@ -58,7 +55,27 @@ Laravel 5.6 版本的发布恰逢 Spark 6.0 的发布，所以这也是自 Larav
 ],
 \end{lstlisting}
 
+
+\begin{lstlisting}[style=bashstyle]
+cd my-app
+ng serve --open
+\end{lstlisting}
+
+Laravel 5.6 版本的发布恰逢 Spark 6.0 的发布，所以这也是自 Laravel Spark 发布以来第一次重大版本升级。Spark 6.0 为 Stripe 和 Braintree 引入了按座定价功能，以及本地化、Bootstrap 4、增强 UI 和 Stripe Elements 支持。
+
 此外，现在可以使用日志系统的新``tap''功能很轻松地自定义已存在的日志频道。想要了解更多细节，请查看完整日志文档。
+
+\begin{lstlisting}[style=bashoutstyle]
+{{Talk|open|date=March 28, 2017}}
+
+Hi Handbook team,
+
+I constructively think FOO part of the Handbook can be enhanced in BAR way. Here is an example of the code/text that will make the improvement:
+
+(insert code or text to be improved here.)
+
+Thank you for considering my suggestion. --~~~~
+\end{lstlisting}
 
 如果你的应用运行在多个服务器上，现在可以限定只在一台机器上运行调度任务。例如，假设你有一个在每周五晚上生成新报告的调度任务，如果任务调度器运行在三个服务器上，这个调度任务就会在三台机器上运行并生成同样的报告三次，这样很不优雅，甚至很糟糕！
 
@@ -112,7 +129,6 @@ cd my-app
 ng serve --open
 \end{verbatim}
 \end{invertedshellbox}
-
 
 \subsubsection{服务提供者}
 

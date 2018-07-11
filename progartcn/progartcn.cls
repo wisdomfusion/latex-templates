@@ -290,11 +290,12 @@
   frame=tb,
   framesep=5pt,
   framerule=.5pt,
-  rulecolor=\color{violet},
+  framexleftmargin=10pt,
+  rulecolor=\color{black},
   abovecaptionskip=0pt,
   belowcaptionskip=5pt,
   aboveskip=5pt,
-  backgroundcolor=\color{violet!5!white},
+  backgroundcolor=\color{black!5!white},
   % Code design
   keywordstyle=\color{codecolorkeywords},
   commentstyle=\color{codecolorcomments},
@@ -306,8 +307,8 @@
   keepspaces=true,
   % Line numbers
   numbers=none,
-  numbersep=10pt,
-  %xleftmargin=.5em,
+  numbersep=15pt,
+  xleftmargin=10pt,
   stepnumber=1,
   firstnumber=1,
   numberfirstline=true,
@@ -319,6 +320,38 @@
   breaklines=true,
 }
 \lstset{style=mystyle}
+
+%% 命令行
+\lstdefinestyle{bashstyle}{
+  backgroundcolor=\color{NavyBlue!10!white},
+  basicstyle=\linespread{1.2}\ttfamily,
+  keepspaces=true,
+  numbers=none,
+  numbersep=10pt,
+  frame=l,
+  framerule=2pt,
+  framesep=5pt,
+  framexleftmargin=3pt,
+  framextopmargin=-5pt,
+  xleftmargin=10pt,
+  rulecolor=\color{NavyBlue},
+}
+
+%% 命令行输出
+\lstdefinestyle{bashoutstyle}{
+  backgroundcolor=\color{black!10!white},
+  basicstyle=\linespread{1.2}\ttfamily,
+  keepspaces=true,
+  numbers=none,
+  numbersep=10pt,
+  frame=l,
+  framerule=2pt,
+  framesep=5pt,
+  framexleftmargin=3pt,
+  framextopmargin=-5pt,
+  xleftmargin=10pt,
+  rulecolor=\color{black!70!white},
+}
 
 %% 代码列表标题
 \RequirePackage{caption}
