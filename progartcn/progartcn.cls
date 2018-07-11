@@ -389,7 +389,7 @@
   %%\colorbox{black!20}{
   %%  \parbox{\textwidth}{#1#2\ttfamily#3}
   %%}
-  \parbox{\textwidth}{\textcolor{violet}\faCode~\textcolor{violet}{#1#2}\hspace{.5em}\fzkai#3}
+  \parbox{\textwidth}{\textcolor{violet}\faCode~\textcolor{violet}{#1#2}\hspace{.5em}\fzkai #3}
 }
 \captionsetup[lstlisting]{format=codecaptionformat}
 
@@ -416,6 +416,8 @@
 %% 行距
 \linespread{1.5}
 
-%% 表格
-\RequirePackage[singlelinecheck=false]{caption} 
-\captionsetup[table]{belowskip=0pt,aboveskip=5pt}
+%% captions
+\RequirePackage[singlelinecheck=false]{caption}
+\DeclareCaptionFont{kai}{\fzkai}
+\captionsetup[table]{belowskip=0pt,aboveskip=5pt,labelfont=kai,textfont=kai}
+\captionsetup[figure]{belowskip=0pt,aboveskip=5pt,format=hang,labelfont=kai,textfont=kai}
