@@ -36,6 +36,9 @@
 
 \begin{abstract}
 \noindent Laravel 5.6 在 Laravel 5.5 的基础上继续进行优化，包括\textbf{日志系统}、\textit{单机任务调度}、\textbf{\textit{模型序列化优化}}、动态频率限制、广播频道类、API 资源控制器生成、Eloquent 日期格式化优化、Blade 组件别名、Argon2 密码哈希支持、引入 Collision 扩展包等等等等。此外，所有的前端脚手架代码都已升级到 Bootstrap 4，Laravel 底层使用的 Symfony 组件都已升级到 Symfony $\sim$4.0 版本。
+
+\vspace{2ex}
+\noindent \textbf{关键字：}LISP\quad{}PHP\quad{}学习环境
 \end{abstract}
 
 \section{新版特性}
@@ -46,13 +49,13 @@ Laravel 5.6 在 Laravel 5.5 的基础上继续进行优化，包括\textbf{日�
 Laravel 5.6 版本的发布恰逢 Spark 6.0 的发布，所以这也是自 Laravel Spark 发布以来第一次重大版本升级。Spark 6.0 为 Stripe 和 Braintree 引入了按座定价功能，以及本地化、Bootstrap 4、增强 UI 和 Stripe Elements 支持。
 
 
-\begin{lstlisting}[language=JavaScript,caption={test/json.json}]
-  'channels' => [
-    'stack' => [
-    'driver' => 'stack',
-    'channels' => ['syslog', 'slack'],
-    ],
+\begin{lstlisting}[language=JavaScript,caption={test/test.json}]
+'channels' => [
+  'stack' => [
+  'driver' => 'stack',
+  'channels' => ['syslog', 'slack'],
   ],
+],
 \end{lstlisting}
 
 此外，现在可以使用日志系统的新``tap''功能很轻松地自定义已存在的日志频道。想要了解更多细节，请查看完整日志文档。
@@ -69,16 +72,6 @@ Laravel 5.6 版本的发布恰逢 Spark 6.0 的发布，所以这也是自 Larav
 当我们使用现实世界中的任何工具时，如果理解了该工具的工作原理，那么用起来就会得心应手，应用开发也是如此。当你理解了开发工具如何工作，用起来就会更加游刃有余。
 
 这篇文档的目标就是从更高层面向你阐述 Laravel 框架的工作原理。通过对框架更全面的了解，一切都不再那么神秘，你将会更加自信地构建应用。如果你不能马上理解所有这些条款，不要失去信心！先试着掌握一些基本的东西，你的知识水平将会随着对文档的探索而不断提升。
-
-\begin{lstlisting}[language=bash,style=bashstyle]
-$ cd my-app
-$ ng serve --open
-\end{lstlisting}
-
-\begin{lstlisting}[language=bash,style=bashoutstyle]
-cd my-app
-ng serve --open
-\end{lstlisting}
 
 \subsubsection{第一件事}
 
@@ -113,12 +106,12 @@ ng serve --open
 \end{verbatim}
 \end{shellbox}
 
-\begin{shelloutputbox}
+\begin{invertedshellbox}
 \begin{verbatim}
 cd my-app
 ng serve --open
 \end{verbatim}
-\end{shelloutputbox}
+\end{invertedshellbox}
 
 
 \subsubsection{服务提供者}
@@ -145,7 +138,7 @@ Laravel 服务容器是一个用于管理类依赖和执行依赖注入的强大
 
 让我们看一个简单的例子：
 
-\begin{lstlisting}[language=PHP]
+\begin{lstlisting}[language=PHP,caption={PHP 代码样例}]
 <?php
 namespace App\Http\Controllers;
 

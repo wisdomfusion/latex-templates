@@ -66,21 +66,36 @@
 %% \usepackage{ebgaramond}
 
 %% 开明式：句末点号用占一个汉字宽度，标号和句内点号占半个汉字宽度
-\punctstyle{kaiming}
+%\punctstyle{kaiming}
 
 \setmainfont{Minion Pro}
 \setsansfont{Myriad Pro}
 \setmonofont{Courier Std}
 
-\setCJKmainfont[BoldFont={Source Han Sans SC Bold}, ItalicFont={Adobe Kaiti Std}, BoldItalicFont={Adobe Fangsong Std}]{Source Han Serif SC}
+\setCJKmainfont[BoldFont={方正小标宋_GBK}, ItalicFont={方正楷体_GBK}, BoldItalicFont={方正仿宋_GBK}]{方正书宋_GBK}
+\setCJKsansfont{方正黑体_GBK}
+\setCJKmonofont{方正中等线_GBK}
 
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip = 0pt plus 1pt
 
-%%\newfontfamily\adobefs{Adobe Fangsong Std}
-%%\newfontfamily\adobekt{Adobe Kaiti Std}
-%%\newfontfamily\shserif{Source Han Serif SC}
-%%\newfontfamily\shsans{Source Han Sans SC}
+\setCJKfamilyfont{fzss}{方正书宋_GBK}
+\newcommand{\fzss}{\CJKfamily{fzss}}
+
+\setCJKfamilyfont{fzxbs}{方正小标宋_GBK}
+\newcommand{\fzxbs}{\CJKfamily{fzxbs}}
+
+\setCJKfamilyfont{fzhei}{方正黑体_GBK}
+\newcommand{\fzhei}{\CJKfamily{fzhei}}
+
+\setCJKfamilyfont{fzkai}{方正楷体_GBK}
+\newcommand{\fzkai}{\CJKfamily{fzkai}}
+
+\setCJKfamilyfont{fzfs}{方正仿宋_GBK}
+\newcommand{\fzfs}{\CJKfamily{fzfs}}
+
+\setCJKfamilyfont{fzzdx}{方正中等线_GBK}
+\newcommand{\fzzdx}{\CJKfamily{fzzdx}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -92,7 +107,7 @@
 
 
 %% \renewcommand\abstractname{Summary}
-\renewenvironment{abstract}{\noindent\rule{\textwidth}{.5pt}\\[2ex] \centering\begin{minipage}{.97\textwidth}{\zihao{-4}\bfseries\abstractname}\\}
+\renewenvironment{abstract}{\noindent\rule{\textwidth}{.5pt}\\[2ex] \centering\begin{minipage}{.97\textwidth}{\zihao{-4}\sffamily\bfseries\abstractname}\\}
 {\par\noindent\end{minipage}\\[2ex] \rule{\textwidth}{.5pt}}
 
 %% section
@@ -129,85 +144,87 @@
 
 %% 带标题的文本框
 \newtcolorbox{titledbox}[1]{%
+  tikznode boxed title,
   enhanced,
-  arc=2pt,
-  fonttitle=\sffamily\bfseries\centering,
+  arc=3pt,
+  interior style={white},
+  attach boxed title to top center = {yshift=-\tcboxedtitleheight/2},
+  fonttitle=\normalfont,
+  colbacktitle=white,coltitle=black,
+  boxed title style={size=normal,colframe=white,boxrule=0pt},
   boxrule=.5pt,
-  left=0pt, right=0pt, top=-10pt, bottom=0pt,
+  left=0pt, right=0pt, top=2pt, bottom=0pt,
   boxsep=10pt,
-  colframe=Black,
-  colback=White,
-  coltext=Black,
-  colbacktitle=White,
-  coltitle=Black,
-  titlerule=0pt,
   title={#1},
-  halign=left
+  halign=left,
+  fontupper=\fzkai
 }
 
-%% Note 注意
+%% Note
 \newtcolorbox{notebox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
-  left=0pt, right=0pt, top=-10pt, bottom=0pt,
+  left=0pt, right=0pt, top=20pt, bottom=0pt,
   boxsep=10pt,
-  colframe=Cyan,
-  colback=Cyan!5!White,
+  colframe=NavyBlue,
+  colback=NavyBlue!5!White,
   coltext=NavyBlue,
-  colbacktitle=Cyan!5!White,
-  coltitle=NavyBlue,
-  titlerule=0pt,
-  title={\faStickyNoteO\hspace{.5em}注意},
-  fonttitle=\bfseries,
-  halign=left
+  overlay={
+    \node[anchor=north,outer sep=10pt] at (frame.north)
+    {\textcolor{NavyBlue}{\faStickyNoteO\hspace{.5em}\bfseries{\textsc{Note}}}};
+  },
+  halign=left,
+  fontupper=\fzkai
 }
 
-%% Important 重要
+%% Important
 \newtcolorbox{importantbox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
-  left=0pt, right=0pt, top=-10pt, bottom=0pt,
+  left=0pt, right=0pt, top=20pt, bottom=0pt,
   boxsep=10pt,
   colframe=Orange,
   colback=Orange!5!White,
   coltext=Orange,
-  colbacktitle=Orange!5!White,
-  coltitle=Orange,
-  titlerule=0pt,
-  title={\faExclamationCircle\hspace{.5em}重要},
-  fonttitle=\bfseries,
-  halign=left
+  overlay={
+    \node[anchor=north,outer sep=10pt] at (frame.north)
+    {\textcolor{Orange}{\faExclamationCircle\hspace{.5em}\bfseries{\textsc{Important}}}};
+  },
+  halign=left,
+  fontupper=\fzkai
 }
 
-%% shellbox 命令行
+%% 命令行
 \newtcolorbox{shellbox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
   left=0pt, right=0pt, top=0pt, bottom=0pt,
   boxsep=10pt,
-  colframe=black!75!white,
-  colback=black!75!white,
-  coltext=white,
+  colframe=black,
+  colback=white,
+  coltext=black,
   title={},
   fontupper=\linespread{1.2}
 }
 
-%% shelloutputbox 命令输出
-\newtcolorbox{shelloutputbox}{%
+%% 命令行
+\newtcolorbox{invertedshellbox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
   left=0pt, right=0pt, top=0pt, bottom=0pt,
   boxsep=10pt,
-  colframe=black!75!white,
-  colback=black!10!white,
-  coltext=black,
+  colframe=black!70!white,
+  colback=black!70!white,
+  coltext=white,
   title={},
   fontupper=\linespread{1.2}
 }
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% head and foot
@@ -224,7 +241,7 @@
 
 \renewcommand{\sectionmark}[1]{\markright{#1}}
 
-\fancyhead[L]{\rightmark}
+\fancyhead[L]{\fzkai{\rightmark}}
 \fancyhead[R]{\thepage}
 
 
@@ -271,12 +288,13 @@
   % Basic design
   basicstyle=\linespread{1.2}\ttfamily,
   frame=tb,
-  %framesep=5pt,
+  framesep=5pt,
   framerule=.5pt,
   rulecolor=\color{violet},
   abovecaptionskip=0pt,
   belowcaptionskip=5pt,
   aboveskip=5pt,
+  backgroundcolor=\color{violet!5!white},
   % Code design
   keywordstyle=\color{codecolorkeywords},
   commentstyle=\color{codecolorcomments},
@@ -302,35 +320,13 @@
 }
 \lstset{style=mystyle}
 
-%% 命令行
-\lstdefinestyle{bashstyle}{
-  backgroundcolor=\color{Cyan!10!white},
-  basicstyle=\linespread{1.2}\ttfamily,
-  numbers=none,
-  xleftmargin=.5em,
-  frame=l,
-  framerule=2pt,
-  rulecolor=\color{Cyan},
-}
-
-%% 命令行输出
-\lstdefinestyle{bashoutstyle}{
-  backgroundcolor=\color{YellowOrange!10!white},
-  basicstyle=\linespread{1.2}\ttfamily,
-  numbers=none,
-  xleftmargin=.5em,
-  frame=l,
-  framerule=2pt,
-  rulecolor=\color{YellowOrange},
-}
-
 %% 代码列表标题
 \RequirePackage{caption}
 \DeclareCaptionFormat{codecaptionformat}{%
   %%\colorbox{black!20}{
   %%  \parbox{\textwidth}{#1#2\ttfamily#3}
   %%}
-  \parbox{\textwidth}{\faCode #1#2\hspace{.5em}#3}
+  \parbox{\textwidth}{\textcolor{violet}\faCode~\textcolor{violet}{#1#2}\hspace{.5em}\fzkai#3}
 }
 \captionsetup[lstlisting]{format=codecaptionformat}
 
@@ -341,7 +337,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
-\renewcommand{\lstlistingname}{代码}
+\renewcommand{\lstlistingname}{CODE}
 \renewcommand{\abstractname}{摘要}
 
 

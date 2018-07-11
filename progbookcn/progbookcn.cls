@@ -78,12 +78,18 @@
 \XeTeXlinebreaklocale "zh"
 \XeTeXlinebreakskip = 0pt plus 1pt
 
-\newfontfamily\fzss{方正书宋_GBK}
-\newfontfamily\fzxbs{方正小标宋_GBK}
-\newfontfamily\fzhei{方正黑体_GBK}
-\newfontfamily\fzkai{方正楷体_GBK}
-\newfontfamily\fzfs{方正仿宋_GBK}
-\newfontfamily\fzzdx{方正中等线_GBK}
+\setCJKfamilyfont{fzss}{方正书宋_GBK}
+\newfontfamily\fzss{fzss}
+\setCJKfamilyfont{fzxbs}{方正小标宋_GBK}
+\newfontfamily\fzxbs{fzxbs}
+\setCJKfamilyfont{fzhei}{方正黑体_GBK}
+\newfontfamily\fzhei{fzhei}
+\setCJKfamilyfont{fzkai}{方正楷体_GBK}
+\newfontfamily\fzkai{fzkai}
+\setCJKfamilyfont{fzfs}{方正仿宋_GBK}
+\newfontfamily\fzfs{fzfs}
+\setCJKfamilyfont{fzzdx}{方正中等线_GBK}
+\newfontfamily\fzzdx{fzzdx}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

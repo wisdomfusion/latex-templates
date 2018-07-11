@@ -38,7 +38,7 @@ Yet Another LaTeX Template for Programming or Technical Articles or Tutorials
 
 - Specified for programming or technical articles or tutorials.
 
-- Using **Minion Pro**, **Myriad Pro** and **Courier Std** as English font families, and using **[Source Han Serif](https://github.com/adobe-fonts/source-han-serif)**,  **[Source Han Sans](https://github.com/adobe-fonts/source-han-sans)**, **Adobe Kaiti Std** and **Adobe Fangsong Std** for Chinese.
+- Using `Minion Pro`, `Myriad Pro` and `Courier Std` as English font families, and using FZ series for Chinese.
 
 - Customizing the styles of abstract, section/subsection, hdr, etc.
 
