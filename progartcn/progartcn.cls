@@ -25,6 +25,7 @@
   urlcolor={black}
 }
 
+\RequirePackage[open,openlevel=0,atend]{bookmark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% graphicx settings
@@ -66,7 +67,7 @@
 %% \usepackage{ebgaramond}
 
 %% 开明式：句末点号用占一个汉字宽度，标号和句内点号占半个汉字宽度
-\punctstyle{kaiming}
+%\punctstyle{kaiming}
 
 \setmainfont{Minion Pro}
 \setsansfont{Myriad Pro}
@@ -393,3 +394,7 @@
 
 %% 行距
 \linespread{1.5}
+
+%% 表格
+\RequirePackage[singlelinecheck=false]{caption} 
+\captionsetup[table]{belowskip=0pt,aboveskip=5pt}
