@@ -153,8 +153,8 @@
   colbacktitle=white,coltitle=black,
   boxed title style={size=normal,colframe=white,boxrule=0pt},
   boxrule=.5pt,
-  left=0pt, right=0pt, top=2pt, bottom=0pt,
-  boxsep=10pt,
+  left=5pt, right=5pt, top=5pt, bottom=0pt,
+  boxsep=5pt,
   title={#1},
   halign=left,
   fontupper=\fzkai
@@ -165,15 +165,13 @@
   enhanced,
   arc=2pt,
   boxrule=.5pt,
-  left=0pt, right=0pt, top=20pt, bottom=0pt,
-  boxsep=10pt,
+  left=5pt, right=5pt, top=0pt, bottom=0pt,
+  boxsep=5pt,
   colframe=NavyBlue,
   colback=NavyBlue!5!White,
+  colbacktitle=NavyBlue!5!White,
   coltext=NavyBlue,
-  overlay={
-    \node[anchor=north,outer sep=10pt] at (frame.north)
-    {\textcolor{NavyBlue}{\faStickyNoteO\hspace{.5em}\bfseries{\textsc{Note}}}};
-  },
+  title={\textcolor{NavyBlue}{\faStickyNoteO\hspace{.5em}\bfseries{\textsc{Note}}}},
   halign=left,
   fontupper=\fzkai
 }
@@ -183,15 +181,13 @@
   enhanced,
   arc=2pt,
   boxrule=.5pt,
-  left=0pt, right=0pt, top=20pt, bottom=0pt,
-  boxsep=10pt,
+  left=5pt, right=5pt, top=0pt, bottom=0pt,
+  boxsep=5pt,
   colframe=Orange,
   colback=Orange!5!White,
+  colbacktitle=Orange!5!White,
   coltext=Orange,
-  overlay={
-    \node[anchor=north,outer sep=10pt] at (frame.north)
-    {\textcolor{Orange}{\faExclamationCircle\hspace{.5em}\bfseries{\textsc{Important}}}};
-  },
+  title={\textcolor{Orange}{\faExclamationCircle\hspace{.5em}\bfseries{\textsc{Important}}}},
   halign=left,
   fontupper=\fzkai
 }
@@ -201,8 +197,8 @@
   enhanced,
   arc=2pt,
   boxrule=.5pt,
-  left=0pt, right=0pt, top=0pt, bottom=0pt,
-  boxsep=10pt,
+  left=5pt, right=5pt, top=0pt, bottom=0pt,
+  boxsep=5pt,
   colframe=black,
   colback=white,
   coltext=black,
@@ -215,8 +211,8 @@
   enhanced,
   arc=2pt,
   boxrule=.5pt,
-  left=0pt, right=0pt, top=0pt, bottom=0pt,
-  boxsep=10pt,
+  left=5pt, right=5pt, top=0pt, bottom=0pt,
+  boxsep=5pt,
   colframe=black!70!white,
   colback=black!70!white,
   coltext=white,
