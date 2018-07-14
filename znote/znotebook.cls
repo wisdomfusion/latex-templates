@@ -10,6 +10,7 @@
 
 \RequirePackage{xunicode}
 \RequirePackage{color,xcolor}
+\RequirePackage{lettrine}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,11 +42,11 @@
 %% 页面设定
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{geometry}
-\RequirePackage{showframe}
+%\RequirePackage{showframe}
 \geometry{
   textwidth=138mm,
   textheight=215mm,
-  left=15mm,
+  left=20mm,
   %%left=27mm,
   %% or
   %%inner=23mm,
@@ -99,6 +100,14 @@
 \newcommand{\fzzdx}{\CJKfamily{fzzdx}}
 
 
+\RequirePackage{titletoc}
+
+\titlecontents{chapter}[0em]{\smallskip\bfseries}%\vspace{1cm}%
+{}%
+{\bfseries}%numberless%
+{\dotfill\contentspage}[\medskip]%
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% titlesec
 %% 标题设定
@@ -132,10 +141,12 @@
 } % label
 {1ex} % sep
 {
-  \hrule width \hsize height .5pt
+  \hrule width \hsize height 1pt
   \vspace{-2ex}\flushright\zihao{2}
 } % before-code
 [
+\vspace{.5ex}
+\hrule width \hsize height .5pt
 \vspace{5ex}
 ] % after-code
 
@@ -167,15 +178,15 @@
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand\headrulewidth{0pt}
-\renewcommand\footrulewidth{.5pt}
-\futurelet\TMPfootrule\def\footrule{{\color{violet}\TMPfootrule}}
+\renewcommand\footrulewidth{0pt}
+%%\futurelet\TMPfootrule\def\footrule{{\color{violet}\TMPfootrule}}
 
-\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\chaptermark}[1]{\markboth{\MakeUppercase{#1}}{}}
 %\renewcommand{\sectionmark}[1]{\markright{\thesection\hspace{1em}#1}}
-%%\renewcommand{\sectionmark}[1]{\markright{#1}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
 
-\fancyfoot[LE]{\thepage\quad\vrule\quad\leftmark}
-\fancyfoot[RO]{\rightmark\quad\vrule\quad\thepage}
+\fancyhead[CE,CO]{\leftmark}
+\fancyfoot[CE,CO]{-- \thepage --}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -365,7 +376,7 @@
 %% Chinese names
 %% 中文名称
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand{\contentsname}{目\hspace{1em}录}
+\renewcommand{\contentsname}{Contents}
 \renewcommand{\figurename}{图}
 \renewcommand{\tablename}{表}
 \renewcommand{\partname}{部分}
