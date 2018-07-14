@@ -5,8 +5,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{znotebook}[Jul, 2018 znotebook - LaTeX Template Customized for Note-Taking with Book Document Structures]
-\LoadClass[a4paper,twoside]{ctexbook}
+\ProvidesClass{znotebook}[Jul, 2018 znotebook, LaTeX Template Customized for Note Taking with Book Document Structures]
+\LoadClass[a4paper,twosides]{ctexbook}
 
 \RequirePackage{xunicode}
 \RequirePackage{color,xcolor}
@@ -41,15 +41,17 @@
 %% 页面设定
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{geometry}
+\RequirePackage{showframe}
 \geometry{
   textwidth=138mm,
   textheight=215mm,
-  %% left=27mm,
+  left=15mm,
+  %%left=27mm,
   %% or
-  inner=23mm,
-  %% right=27mm,
+  %%inner=23mm,
+  %%right=27mm,
   %% or
-  outer=18mm,
+  %%outer=18mm,
   top=25.4mm, bottom=25.4mm,
   headheight=2.17cm,
   headsep=4mm,
@@ -79,17 +81,22 @@
 \XeTeXlinebreakskip = 0pt plus 1pt
 
 \setCJKfamilyfont{fzss}{方正书宋_GBK}
-\newfontfamily\fzss{fzss}
+\newcommand{\fzss}{\CJKfamily{fzss}}
+
 \setCJKfamilyfont{fzxbs}{方正小标宋_GBK}
-\newfontfamily\fzxbs{fzxbs}
+\newcommand{\fzxbs}{\CJKfamily{fzxbs}}
+
 \setCJKfamilyfont{fzhei}{方正黑体_GBK}
-\newfontfamily\fzhei{fzhei}
+\newcommand{\fzhei}{\CJKfamily{fzhei}}
+
 \setCJKfamilyfont{fzkai}{方正楷体_GBK}
-\newfontfamily\fzkai{fzkai}
+\newcommand{\fzkai}{\CJKfamily{fzkai}}
+
 \setCJKfamilyfont{fzfs}{方正仿宋_GBK}
-\newfontfamily\fzfs{fzfs}
+\newcommand{\fzfs}{\CJKfamily{fzfs}}
+
 \setCJKfamilyfont{fzzdx}{方正中等线_GBK}
-\newfontfamily\fzzdx{fzzdx}
+\newcommand{\fzzdx}{\CJKfamily{fzzdx}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,7 +128,7 @@
 [display] % shape
 {\bfseries} % format
 {
-  \flushright\zihao{4}第\zhnum{chapter}章
+  %\flushright\zihao{4}第\zhnum{chapter}章
 } % label
 {1ex} % sep
 {
@@ -163,9 +170,9 @@
 \renewcommand\footrulewidth{.5pt}
 \futurelet\TMPfootrule\def\footrule{{\color{violet}\TMPfootrule}}
 
-\renewcommand{\chaptermark}[1]{\markboth{第\zhnum{chapter}章\hspace{1em}#1}{}}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 %\renewcommand{\sectionmark}[1]{\markright{\thesection\hspace{1em}#1}}
-\renewcommand{\sectionmark}[1]{\markright{#1}}
+%%\renewcommand{\sectionmark}[1]{\markright{#1}}
 
 \fancyfoot[LE]{\thepage\quad\vrule\quad\leftmark}
 \fancyfoot[RO]{\rightmark\quad\vrule\quad\thepage}

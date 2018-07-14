@@ -79,17 +79,22 @@
 \XeTeXlinebreakskip = 0pt plus 1pt
 
 \setCJKfamilyfont{fzss}{方正书宋_GBK}
-\newfontfamily\fzss{fzss}
+\newcommand{\fzss}{\CJKfamily{fzss}}
+
 \setCJKfamilyfont{fzxbs}{方正小标宋_GBK}
-\newfontfamily\fzxbs{fzxbs}
+\newcommand{\fzxbs}{\CJKfamily{fzxbs}}
+
 \setCJKfamilyfont{fzhei}{方正黑体_GBK}
-\newfontfamily\fzhei{fzhei}
+\newcommand{\fzhei}{\CJKfamily{fzhei}}
+
 \setCJKfamilyfont{fzkai}{方正楷体_GBK}
-\newfontfamily\fzkai{fzkai}
+\newcommand{\fzkai}{\CJKfamily{fzkai}}
+
 \setCJKfamilyfont{fzfs}{方正仿宋_GBK}
-\newfontfamily\fzfs{fzfs}
+\newcommand{\fzfs}{\CJKfamily{fzfs}}
+
 \setCJKfamilyfont{fzzdx}{方正中等线_GBK}
-\newfontfamily\fzzdx{fzzdx}
+\newcommand{\fzzdx}{\CJKfamily{fzzdx}}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
