@@ -6,7 +6,7 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{znotebook}[Jul, 2018 znotebook, LaTeX Template Customized for Note Taking with Book Document Structures]
-\LoadClass[a4paper,twosides]{ctexbook}
+\LoadClass[a4paper,twosides,12pt]{ctexbook}
 
 \RequirePackage{xunicode}
 \RequirePackage{color,xcolor}
@@ -186,7 +186,7 @@
 \renewcommand{\sectionmark}[1]{\markright{#1}}
 
 \fancyhead[CE,CO]{\leftmark}
-\fancyfoot[CE,CO]{-- \thepage --}
+\fancyfoot[CE,CO]{\thepage}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
