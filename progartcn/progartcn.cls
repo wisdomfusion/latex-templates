@@ -162,65 +162,77 @@
 }
 
 %% Note
+\definecolor{ColorInfo}{HTML}{31708f}
+\definecolor{ColorInfoBorder}{HTML}{bce8f1}
+\definecolor{ColorInfoBackground}{HTML}{d9edf7}
 \newtcolorbox{notebox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
   left=5pt, right=5pt, top=0pt, bottom=0pt,
   boxsep=5pt,
-  colframe=NavyBlue!30!White,
-  colback=NavyBlue!5!White,
-  colbacktitle=NavyBlue!5!White,
-  coltext=NavyBlue,
-  title={\textcolor{NavyBlue}{\faStickyNoteO\hspace{.5em}\bfseries{\textsc{Note}}}},
+  colframe=ColorInfoBorder,
+  colback=ColorInfoBackground,
+  colbacktitle=ColorInfoBackground,
+  coltext=ColorInfo,
+  title={\textcolor{ColorInfo}{\faStickyNoteO\hspace{.5em}\bfseries{\textsc{Note}}}},
   halign=left,
   fontupper=\fzkai
 }
 
 %% Important
+\definecolor{ColorWarning}{HTML}{8a6d3b}
+\definecolor{ColorWarningBorder}{HTML}{faebcc}
+\definecolor{ColorWarningBackground}{HTML}{fcf8e3}
 \newtcolorbox{importantbox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
   left=5pt, right=5pt, top=0pt, bottom=0pt,
   boxsep=5pt,
-  colframe=Orange!30!White,
-  colback=Orange!5!White,
-  colbacktitle=Orange!5!White,
-  coltext=Orange,
-  title={\textcolor{Orange}{\faExclamationCircle\hspace{.5em}\bfseries{\textsc{Important}}}},
+  colframe=ColorWarningBorder,
+  colback=ColorWarningBackground,
+  colbacktitle=ColorWarningBackground,
+  coltext=ColorWarning,
+  title={\textcolor{ColorWarning}{\faExclamationCircle\hspace{.5em}\bfseries{\textsc{Important}}}},
   halign=left,
   fontupper=\fzkai
 }
 
 %% Tip
+\definecolor{ColorSuccess}{HTML}{3c763d}
+\definecolor{ColorSuccessoBorder}{HTML}{d6e9c6}
+\definecolor{ColorSuccessBackground}{HTML}{dff0d8}
 \newtcolorbox{tipbox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
   left=5pt, right=5pt, top=0pt, bottom=0pt,
   boxsep=5pt,
-  colframe=ForestGreen!30!White,
-  colback=ForestGreen!5!White,
-  colbacktitle=ForestGreen!5!White,
-  coltext=ForestGreen,
-  title={\textcolor{ForestGreen}{\faCheckCircle\hspace{.5em}\bfseries{\textsc{Tip}}}},
+  colframe=ColorSuccessoBorder,
+  colback=ColorSuccessBackground,
+  colbacktitle=ColorSuccessBackground,
+  coltext=ColorSuccess,
+  title={\textcolor{ColorSuccess}{\faCheckCircle\hspace{.5em}\bfseries{\textsc{Tip}}}},
   halign=left,
   fontupper=\fzkai
 }
 
 %% Warning
+\definecolor{ColorDanger}{HTML}{a94442}
+\definecolor{ColorDangerBorder}{HTML}{ebccd1}
+\definecolor{ColorDangerBackground}{HTML}{f2dede}
 \newtcolorbox{warningbox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
   left=5pt, right=5pt, top=0pt, bottom=0pt,
   boxsep=5pt,
-  colframe=Red!30!White,
-  colback=Red!5!White,
-  colbacktitle=Red!5!White,
-  coltext=Red,
-  title={\textcolor{Red}{\faExclamationTriangle\hspace{.5em}\bfseries{\textsc{Warning}}}},
+  colframe=ColorDangerBorder,
+  colback=ColorDangerBackground,
+  colbacktitle=ColorDangerBackground,
+  coltext=ColorDanger,
+  title={\textcolor{ColorDanger}{\faExclamationTriangle\hspace{.5em}\bfseries{\textsc{Warning}}}},
   halign=left,
   fontupper=\fzkai
 }
