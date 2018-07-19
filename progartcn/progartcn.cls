@@ -168,7 +168,7 @@
   boxrule=.5pt,
   left=5pt, right=5pt, top=0pt, bottom=0pt,
   boxsep=5pt,
-  colframe=NavyBlue,
+  colframe=NavyBlue!30!White,
   colback=NavyBlue!5!White,
   colbacktitle=NavyBlue!5!White,
   coltext=NavyBlue,
@@ -184,11 +184,43 @@
   boxrule=.5pt,
   left=5pt, right=5pt, top=0pt, bottom=0pt,
   boxsep=5pt,
-  colframe=Orange,
+  colframe=Orange!30!White,
   colback=Orange!5!White,
   colbacktitle=Orange!5!White,
   coltext=Orange,
   title={\textcolor{Orange}{\faExclamationCircle\hspace{.5em}\bfseries{\textsc{Important}}}},
+  halign=left,
+  fontupper=\fzkai
+}
+
+%% Tip
+\newtcolorbox{tipbox}{%
+  enhanced,
+  arc=2pt,
+  boxrule=.5pt,
+  left=5pt, right=5pt, top=0pt, bottom=0pt,
+  boxsep=5pt,
+  colframe=ForestGreen!30!White,
+  colback=ForestGreen!5!White,
+  colbacktitle=ForestGreen!5!White,
+  coltext=ForestGreen,
+  title={\textcolor{ForestGreen}{\faCheckCircle\hspace{.5em}\bfseries{\textsc{Tip}}}},
+  halign=left,
+  fontupper=\fzkai
+}
+
+%% Warning
+\newtcolorbox{warningbox}{%
+  enhanced,
+  arc=2pt,
+  boxrule=.5pt,
+  left=5pt, right=5pt, top=0pt, bottom=0pt,
+  boxsep=5pt,
+  colframe=Red!30!White,
+  colback=Red!5!White,
+  colbacktitle=Red!5!White,
+  coltext=Red,
+  title={\textcolor{Red}{\faExclamationTriangle\hspace{.5em}\bfseries{\textsc{Warning}}}},
   halign=left,
   fontupper=\fzkai
 }

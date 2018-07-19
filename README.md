@@ -41,7 +41,7 @@ Yet Another LaTeX Template for Programming or Technical Articles or Tutorials
 - Customizing the styles of abstract, section/subsection/subsubsection, table, hdr, etc.
 - Defining styles for languages not predefined in `listings`: JavaScript/ES6, TypeScript, golang.
 - Defining boxes for shell commands and output result, such as `shellbox` and `invertedshellbox`.
-- Creating new boxes environments using `tcolorbox`: notebox, importantbox.
+- Creating new boxes environments using `tcolorbox`: notebox, importantbox, tipbox, and warningbox.
 
 ## Templates for Presentations (Beamer)
 
