@@ -9,7 +9,60 @@
 \LoadClass[a4paper]{ctexart}
 
 \RequirePackage{xunicode}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% colors
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[dvipsnames]{xcolor}
+
+% primary
+\definecolor{colorPrimary}{HTML}{007bff}
+\definecolor{colorPrimaryBorder}{HTML}{b8daff}
+\definecolor{colorPrimaryBackground}{HTML}{cce5ff}
+\definecolor{colorPrimaryText}{HTML}{004085}
+
+% secondary
+\definecolor{colorSecondary}{HTML}{6c757d}
+\definecolor{colorSecondaryBorder}{HTML}{d6d8db}
+\definecolor{colorSecondaryBackground}{HTML}{e2e3e5}
+\definecolor{colorSecondaryText}{HTML}{383d41}
+
+% success
+\definecolor{colorSuccess}{HTML}{28a745}
+\definecolor{colorSuccessBorder}{HTML}{c3e6cb}
+\definecolor{colorSuccessBackground}{HTML}{d4edda}
+\definecolor{colorSuccessText}{HTML}{155724}
+
+% info
+\definecolor{colorInfo}{HTML}{17a2b8}
+\definecolor{colorInfoBorder}{HTML}{bee5eb}
+\definecolor{colorInfoBackground}{HTML}{d1ecf1}
+\definecolor{colorInfoText}{HTML}{0c5460}
+
+% danger
+\definecolor{colorDanger}{HTML}{dc3545}
+\definecolor{colorDangerBorder}{HTML}{f5c6cb}
+\definecolor{colorDangerBackground}{HTML}{f8d7da}
+\definecolor{colorDangerText}{HTML}{721c24}
+
+% warning
+\definecolor{colorWarning}{HTML}{ffc107}
+\definecolor{colorWarningBorder}{HTML}{ffeeba}
+\definecolor{colorWarningBackground}{HTML}{fff3cd}
+\definecolor{colorWarningText}{HTML}{856404}
+
+% light
+\definecolor{colorLight}{HTML}{f8f9fa}
+\definecolor{colorLightBorder}{HTML}{fdfdfe}
+\definecolor{colorLightBackground}{HTML}{fefefe}
+\definecolor{colorLightText}{HTML}{818182}
+
+% dark
+\definecolor{colorDark}{HTML}{343a40}
+\definecolor{colorDarkBorder}{HTML}{c6c8ca}
+\definecolor{colorDarkBackground}{HTML}{d6d8d9}
+\definecolor{colorDarkText}{HTML}{1b1e21}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -144,7 +197,7 @@
 \RequirePackage{fontawesome}
 
 %% 带标题的文本框
-\newtcolorbox{titledbox}[1]{%
+\newtcolorbox{titledBox}[1]{%
   tikznode boxed title,
   enhanced,
   arc=3pt,
@@ -161,88 +214,82 @@
   fontupper=\fzkai
 }
 
+
 %% Note
-\definecolor{ColorInfo}{HTML}{31708f}
-\definecolor{ColorInfoBorder}{HTML}{bce8f1}
-\definecolor{ColorInfoBackground}{HTML}{d9edf7}
-\newtcolorbox{notebox}{%
+\newtcolorbox{noteBox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
   left=5pt, right=5pt, top=0pt, bottom=0pt,
   boxsep=5pt,
-  colframe=ColorInfoBorder,
-  colback=ColorInfoBackground,
-  colbacktitle=ColorInfoBackground,
-  coltext=ColorInfo,
-  title={\textcolor{ColorInfo}{\faStickyNoteO\hspace{.5em}\bfseries{\textsc{Note}}}},
+  colframe=colorInfoBorder,
+  colback=colorInfoBackground,
+  colbacktitle=colorInfoBackground,
+  coltext=colorInfoText,
+  title={\textcolor{colorInfoText}{\faStickyNoteO\hspace{.5em}\bfseries{\textsc{Note}}}},
+  titlerule=0pt,
   halign=left,
   fontupper=\fzkai
 }
 
 %% Important
-\definecolor{ColorWarning}{HTML}{8a6d3b}
-\definecolor{ColorWarningBorder}{HTML}{faebcc}
-\definecolor{ColorWarningBackground}{HTML}{fcf8e3}
-\newtcolorbox{importantbox}{%
+\newtcolorbox{importantBox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
   left=5pt, right=5pt, top=0pt, bottom=0pt,
   boxsep=5pt,
-  colframe=ColorWarningBorder,
-  colback=ColorWarningBackground,
-  colbacktitle=ColorWarningBackground,
-  coltext=ColorWarning,
-  title={\textcolor{ColorWarning}{\faExclamationCircle\hspace{.5em}\bfseries{\textsc{Important}}}},
+  colframe=colorWarningBorder,
+  colback=colorWarningBackground,
+  colbacktitle=colorWarningBackground,
+  coltext=colorWarningText,
+  title={\textcolor{colorWarningText}{\faExclamationCircle\hspace{.5em}\bfseries{\textsc{Important}}}},
+  titlerule=0pt,
   halign=left,
   fontupper=\fzkai
 }
 
 %% Tip
-\definecolor{ColorSuccess}{HTML}{3c763d}
-\definecolor{ColorSuccessoBorder}{HTML}{d6e9c6}
-\definecolor{ColorSuccessBackground}{HTML}{dff0d8}
-\newtcolorbox{tipbox}{%
+\newtcolorbox{tipBox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
   left=5pt, right=5pt, top=0pt, bottom=0pt,
   boxsep=5pt,
-  colframe=ColorSuccessoBorder,
-  colback=ColorSuccessBackground,
-  colbacktitle=ColorSuccessBackground,
-  coltext=ColorSuccess,
-  title={\textcolor{ColorSuccess}{\faCheckCircle\hspace{.5em}\bfseries{\textsc{Tip}}}},
+  colframe=colorSuccessBorder,
+  colback=colorSuccessBackground,
+  colbacktitle=colorSuccessBackground,
+  coltext=colorSuccessText,
+  title={\textcolor{colorSuccessText}{\faCheckCircle\hspace{.5em}\bfseries{\textsc{Tip}}}},
+  titlerule=0pt,
   halign=left,
   fontupper=\fzkai
 }
 
 %% Warning
-\definecolor{ColorDanger}{HTML}{a94442}
-\definecolor{ColorDangerBorder}{HTML}{ebccd1}
-\definecolor{ColorDangerBackground}{HTML}{f2dede}
-\newtcolorbox{warningbox}{%
+\newtcolorbox{warningBox}{%
   enhanced,
   arc=2pt,
   boxrule=.5pt,
   left=5pt, right=5pt, top=0pt, bottom=0pt,
   boxsep=5pt,
-  colframe=ColorDangerBorder,
-  colback=ColorDangerBackground,
-  colbacktitle=ColorDangerBackground,
-  coltext=ColorDanger,
-  title={\textcolor{ColorDanger}{\faExclamationTriangle\hspace{.5em}\bfseries{\textsc{Warning}}}},
+  colframe=colorDangerBorder,
+  colback=colorDangerBackground,
+  colbacktitle=colorDangerBackground,
+  coltext=colorDangerText,
+  title={\textcolor{colorDangerText}{\faExclamationTriangle\hspace{.5em}\bfseries{\textsc{Warning}}}},
+  titlerule=0pt,
   halign=left,
   fontupper=\fzkai
 }
+
 
 %% verbatim 环境无法直接在新环境中使用
 %% 换用 \VerbatimEnvironment \begin{Verbatim}
 \RequirePackage{fancyvrb}
 
 %% 命令行
-\newenvironment{shellbox}
+\newenvironment{shellBox}
 {%
   \VerbatimEnvironment
   \begin{tcolorbox}[
@@ -251,9 +298,9 @@
     boxrule=.5pt,
     left=5pt, right=5pt, top=0pt, bottom=0pt,
     boxsep=5pt,
-    colframe=black,
-    colback=white,
-    coltext=black,
+    colframe=colorSecondaryBorder,
+    colback=colorSecondaryBackground,
+    coltext=colorSecondaryText,
     title={},
     fontupper=\linespread{1.2}
   ]%
@@ -265,7 +312,7 @@
 }
 
 %% 命令行
-\newenvironment{invertedshellbox}
+\newenvironment{invertedShellBox}
 {%
   \VerbatimEnvironment
   \begin{tcolorbox}[
@@ -274,8 +321,8 @@
     boxrule=.5pt,
     left=5pt, right=5pt, top=0pt, bottom=0pt,
     boxsep=5pt,
-    colframe=black!70!white,
-    colback=black!70!white,
+    colframe=colorSecondary,
+    colback=colorSecondary,
     coltext=white,
     title={},
     fontupper=\linespread{1.2}
@@ -312,12 +359,6 @@
 %% 代码块设定
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{listings,verbatim}
-
-\definecolor{codecolorkeywords}{rgb}{0,0,1}
-\definecolor{codecolorcomments}{rgb}{0,0.5,0}
-\definecolor{codecolorxmlcomments}{rgb}{0.5,0.5,0.5}
-\definecolor{codecolorstrings}{rgb}{0.64,0.08,0.08}
-\definecolor{codecolortypes}{rgb}{0.17,0.57,0.68}
 
 \lstdefinelanguage{JavaScript}{
   keywords={do, if, in, for, let, new, try, var, case, else, enum, eval, null, this, true, void, with, await, break, catch, class, const, false, super, throw, while, yield, delete, export, import, public, return, static, switch, typeof, default, extends, finally, package, private, continue, debugger, function, arguments, interface, protected, implements, instanceof},
@@ -359,9 +400,9 @@
   aboveskip=5pt,
   backgroundcolor=\color{black!5!white},
   % Code design
-  keywordstyle=\color{codecolorkeywords},
-  commentstyle=\color{codecolorcomments},
-  stringstyle=\color{codecolorstrings},
+  keywordstyle=\color{colorPrimary},
+  commentstyle=\color{colorSuccess},
+  stringstyle=\color{colorSecondary},
   numberstyle=\small\color{gray},
   breakatwhitespace=false,
   breaklines=true,
@@ -384,9 +425,9 @@
 \lstset{style=mystyle}
 
 %% 命令行
-\lstdefinestyle{bashstyle}{
-  backgroundcolor=\color{NavyBlue!10!white},
-  basicstyle=\linespread{1.2}\ttfamily,
+\lstdefinestyle{bashInputStyle}{
+  backgroundcolor=\color{colorInfoBackground},
+  basicstyle=\linespread{1.2}\ttfamily\color{colorDark},
   keepspaces=true,
   numbers=none,
   numbersep=10pt,
@@ -396,7 +437,7 @@
   framexleftmargin=3pt,
   framextopmargin=-5pt,
   xleftmargin=10pt,
-  rulecolor=\color{NavyBlue},
+  rulecolor=\color{colorInfo},
   % Code
   tabsize=4,
   showspaces=false,
@@ -406,9 +447,9 @@
 }
 
 %% 命令行输出
-\lstdefinestyle{bashoutputstyle}{
-  backgroundcolor=\color{black!10!white},
-  basicstyle=\linespread{1.2}\ttfamily,
+\lstdefinestyle{bashOutputStyle}{
+  backgroundcolor=\color{black!5!white},
+  basicstyle=\linespread{1.2}\ttfamily\color{colorDark},
   keepspaces=true,
   numbers=none,
   numbersep=10pt,
@@ -418,7 +459,7 @@
   framexleftmargin=3pt,
   framextopmargin=-5pt,
   xleftmargin=10pt,
-  rulecolor=\color{black!70!white},
+  rulecolor=\color{colorSecondary},
   % Code
   tabsize=4,
   showspaces=false,

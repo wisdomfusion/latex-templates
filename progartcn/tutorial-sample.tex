@@ -92,12 +92,12 @@ import { BrowserModule } from '@angular/platform-browser';
 export class AppModule { }
 \end{lstlisting}
 
-\begin{lstlisting}[style=bashstyle]
+\begin{lstlisting}[style=bashInputStyle]
 cd my-app
 ng serve --open
 \end{lstlisting}
 
-\begin{lstlisting}[style=bashoutputstyle]
+\begin{lstlisting}[style=bashOutputStyle]
 blablabla
 \end{lstlisting}
 
@@ -115,9 +115,9 @@ Angular CLI是一个命令行界面工具，它可以创建项目、添加文件
 
 如果你的电脑里没有 Node.js®和 npm，请安装它们。
 
-\begin{invertedshellbox}
+\begin{invertedShellBox}
 npm install -g @angular/cli
-\end{invertedshellbox}
+\end{invertedShellBox}
 
 \subsection{步骤 2. 创建新项目}
 
@@ -125,22 +125,22 @@ npm install -g @angular/cli
 
 运行下列命令来生成一个新项目以及默认的应用代码：
 
-\begin{invertedshellbox}
+\begin{invertedShellBox}
 ng new my-app
-\end{invertedshellbox}
+\end{invertedShellBox}
 
 \subsection{步骤 3. 启动开发服务器}
 
 进入项目目录，并启动服务器。
 
-\begin{invertedshellbox}
+\begin{invertedShellBox}
 cd my-app
 ng serve --open
-\end{invertedshellbox}
+\end{invertedShellBox}
 
 你的应用代码位于 \verb|src| 文件夹中。 所有的 Angular 组件、模板、样式、图片以及你的应用所需的任何东西都在那里。 这个文件夹之外的文件都是为构建应用提供支持用的。
 
-\begin{lstlisting}[style=bashoutputstyle]
+\begin{lstlisting}[style=bashOutputStyle]
 src
   app
     app.component.css
@@ -174,58 +174,54 @@ blabla
 
 \section{boxes}
 
-\noindent\verb|\begin{titledbox}{<title>} <content> \end{titledbox}|
+\noindent\verb|\begin{titledBox}{<title>} <content> \end{titledBox}|
 
-\begin{titledbox}{HTTP/Console 内核}
+\begin{titledBox}{HTTP/Console 内核}
   HTTP 内核继承自 \verb|Illuminate\Foundation\Http\Kernel| 类，该类定义了一个 \verb|bootstrappers| 数组，这个数组中的类在请求被执行前运行，这些 \verb|bootstrappers| 配置了错误处理、日志、检测应用环境以及其它在请求被处理前需要执行的任务。
-\end{titledbox}
+\end{titledBox}
 
-\noindent\verb|\begin{notebox} <content> \end{notebox}|
+\noindent\verb|\begin{noteBox} <content> \end{noteBox}|
 
-\begin{notebox}
+\begin{noteBox}
   HTTP 内核继承自 \verb|Illuminate\Foundation\Http\Kernel| 类，该类定义了一个 \verb|bootstrappers| 数组，这个数组中的类在请求被执行前运行，这些 \verb|bootstrappers| 配置了错误处理、日志、检测应用环境以及其它在请求被处理前需要执行的任务。
-\end{notebox}
+\end{noteBox}
 
-\noindent\verb|\begin{importantbox} <content> \end{importantbox}|
+\noindent\verb|\begin{importantBox} <content> \end{importantBox}|
 
-\begin{importantbox}
+\begin{importantBox}
   HTTP 内核继承自 \verb|Illuminate\Foundation\Http\Kernel| 类，该类定义了一个 \verb|bootstrappers| 数组，这个数组中的类在请求被执行前运行，这些 \verb|bootstrappers| 配置了错误处理、日志、检测应用环境以及其它在请求被处理前需要执行的任务。
-\end{importantbox}
+\end{importantBox}
 
-\noindent\verb|\begin{tipbox} <content> \end{tipbox}|
+\noindent\verb|\begin{tipBox} <content> \end{tipBox}|
 
-\begin{tipbox}
+\begin{tipBox}
   HTTP 内核继承自 \verb|Illuminate\Foundation\Http\Kernel| 类，该类定义了一个 \verb|bootstrappers| 数组，这个数组中的类在请求被执行前运行，这些 \verb|bootstrappers| 配置了错误处理、日志、检测应用环境以及其它在请求被处理前需要执行的任务。
-\end{tipbox}
+\end{tipBox}
 
-\noindent\verb|\begin{warningbox} <content> \end{warningbox}|
+\noindent\verb|\begin{warningBox} <content> \end{warningBox}|
 
-\begin{warningbox}
+\begin{warningBox}
   HTTP 内核继承自 \verb|Illuminate\Foundation\Http\Kernel| 类，该类定义了一个 \verb|bootstrappers| 数组，这个数组中的类在请求被执行前运行，这些 \verb|bootstrappers| 配置了错误处理、日志、检测应用环境以及其它在请求被处理前需要执行的任务。
-\end{warningbox}
+\end{warningBox}
 
-\noindent\verb|\begin{shellbox} <content> \end{shellbox}|
+\noindent\verb|\begin{shellBox} <content> \end{shellBox}|
 
-\begin{shellbox}
+\begin{shellBox}
 cd my-app
 ng serve --open
-\end{shellbox}
+\end{shellBox}
 
-\noindent\verb|\begin{invertedshellbox} <content> \end{invertedshellbox}|
+\noindent\verb|\begin{invertedShellBox} <content> \end{invertedShellBox}|
 
-\begin{invertedshellbox}
+\begin{invertedShellBox}
 cd my-app
 ng serve --open
-\end{invertedshellbox}
+\end{invertedShellBox}
 
 
 \section{服务容器3}
 
 Laravel 服务容器是一个用于管理类依赖和执行依赖注入的强大工具。依赖注入听上去很花哨，其实质是通过构造函数或者某些情况下通过 \verb|setter| 方法将类依赖注入到类中。
-
-让我们看一个简单的例子：
-
-\clearpage
 
 \begin{lstlisting}[language=PHP,caption={PHP 代码样例}]
 <?php
@@ -258,10 +254,6 @@ class UserController extends Controller
   ...
 }
 \end{lstlisting}
-
-在本例中，\texttt{UserController} 需要从数据源获取用户，所以，我们注入了一个可以获取用户的服务 \texttt{UserRepository}，其扮演的角色类似使用 Eloquent 从数据库获取用户信息。注入 \texttt{UserRepository} 后，我们可以在其基础上封装其他实现，也可以模拟或者创建一个假的 \texttt{UserRepository} 实现用于测试。
-
-深入理解 Laravel 服务容器对于构建功能强大的大型 Laravel 应用而言至关重要，对于贡献代码到 Laravel 核心也很有帮助。
 
 \centering{
 \includegraphics[width=5cm,align=c]{laravel_logo.png}
