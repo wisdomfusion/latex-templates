@@ -26,7 +26,13 @@ Yet Another LaTeX Template for Programming or Technical Books
 
 ## Templates for Note-taking
 
-TODO
+### znotebook
+
+znotebook
+
+### znotearticle
+
+znotearticle
 
 ## Templates for Articles or Tutorials
 
@@ -39,9 +45,10 @@ Yet Another LaTeX Template for Programming or Technical Articles or Tutorials
 - Specified for programming or technical articles or tutorials.
 - Using `Minion Pro`, `Myriad Pro` and `Courier Std` as English font families, and using FZ series for Chinese.
 - Customizing the styles of abstract, section/subsection/subsubsection, table, hdr, etc.
+- Defining a set of colors: primary, secondary, success, danger, info, warning, light, and dark.
 - Defining styles for languages not predefined in `listings`: JavaScript/ES6, TypeScript, golang.
-- Defining boxes for shell commands and output result, such as `shellbox` and `invertedshellbox`.
-- Creating new boxes environments using `tcolorbox`: notebox, importantbox, tipbox, and warningbox.
+- Defining boxes for shell commands and output result, such as `shellBox` and `invertedShellBox`.
+- Creating new boxes environments using `tcolorbox`: noteBox, importantBox, tipBox, and warningBox.
 
 ## Templates for Presentations (Beamer)
 
