@@ -44,13 +44,13 @@
 \RequirePackage{geometry}
 %\RequirePackage{showframe}
 \geometry{
-  textwidth=138mm,
+  textwidth=125mm,
   textheight=215mm,
   left=20mm,
   %%left=27mm,
   %% or
   %%inner=23mm,
-  %%right=27mm,
+  %%right=20mm,
   %% or
   %%outer=18mm,
   top=25.4mm, bottom=25.4mm,
